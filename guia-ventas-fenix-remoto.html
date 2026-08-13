@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Ventas Interactiva · Método Fénix Remoto · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606; --void-soft:#0F0F0F; --void-card:#131313; --void-card2:#191919;
+    --line:#242220;
+    --gold:#C9A84C; --gold-soft:#C9A96E; --gold-dim:#8E763A; --gold-glow:rgba(201,168,76,.10);
+    --ink:#EDE7D8; --ink-dim:#B4AC98; --ink-faint:#807A6C;
+    --teal:#4ABFA3; --teal-glow:rgba(74,191,163,.10); --teal-dim:rgba(74,191,163,.3);
+    --violet:#A48BE0; --violet-glow:rgba(164,139,224,.12); --violet-dim:rgba(164,139,224,.4);
+    --red:#D97B6B; --red-glow:rgba(217,91,91,.09); --red-dim:rgba(217,91,91,.3);
+    --radius:8px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--void); color:var(--ink);
+    font-family:'DM Sans',sans-serif; font-size:15.5px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif; color:var(--ink); margin:0 0 .3em; font-weight:600; line-height:1.2;}
+  a{color:var(--gold);}
+  button{font-family:'DM Sans',sans-serif;}
+  .cinzel{font-family:'Cinzel',serif;}
+  label{font-size:.78rem; color:var(--ink-faint); display:block; margin-bottom:4px;}
+  input[type=text],input[type=tel],input[type=email],select,textarea{
+    width:100%; background:var(--void-card); border:1px solid var(--line); color:var(--ink);
+    border-radius:6px; padding:9px 11px; font-size:.86rem; font-family:'DM Sans',sans-serif;
+  }
+  input:focus,select:focus,textarea:focus{outline:1px solid var(--gold-dim);}
+
+  header.top{position:sticky; top:0; z-index:50; background:var(--void-soft); border-bottom:1px solid var(--gold-dim);}
+  .brandbar{display:flex; align-items:center; justify-content:space-between; padding:12px 22px; flex-wrap:wrap; gap:10px;}
+  .brandmark{display:flex; align-items:center; gap:10px;}
+  .brandmark svg{width:30px; height:30px;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.95rem; color:#fff; letter-spacing:.05em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-title{font-size:.78rem; color:var(--ink-dim); margin-top:1px;}
+  .leadname-box{display:flex; align-items:center; gap:8px; font-size:.78rem; color:var(--ink-faint);}
+  .leadname-box input{width:160px;}
+
+  .quickbar{display:flex; gap:10px; flex-wrap:wrap; padding:9px 22px; background:#000; border-bottom:1px solid var(--line); font-size:.76rem;}
+  .qgroup{
+    display:inline-flex; align-items:center; gap:8px; background:var(--void-card); border:1px solid var(--line);
+    border-radius:20px; padding:6px 10px; transition:.15s;
+  }
+  .qgroup:hover{border-color:var(--gold-dim);}
+  .qlink{display:inline-flex; align-items:center; gap:6px; color:var(--ink-dim); text-decoration:none; white-space:nowrap;}
+  .qlink.gold{color:var(--gold);}
+  .qsend{
+    background:none; border:none; color:var(--ink-faint);
+    width:18px; height:18px; font-size:.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;
+  }
+  .qsend:hover{color:var(--gold-soft);}
+
+  .tabs{display:flex; gap:2px; padding:0 22px; background:var(--void-soft); overflow-x:auto; border-bottom:1px solid var(--line);}
+  .tabbtn{background:transparent; border:none; color:var(--ink-faint); padding:13px 15px; cursor:pointer; font-size:.75rem; font-weight:600; letter-spacing:.03em; text-transform:uppercase; border-bottom:2px solid transparent; white-space:nowrap; transition:.15s; font-family:'Cinzel',serif;}
+  .tabbtn:hover{color:var(--ink);}
+  .tabbtn.active{color:var(--gold); border-bottom-color:var(--gold);}
+
+  main{max-width:980px; margin:0 auto; padding:34px 22px 90px;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+  .lede{color:var(--ink-dim); max-width:70ch;}
+  .section-tag{font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-dim); font-weight:600; font-family:'Cinzel',serif; margin-bottom:6px;}
+  h2.page-title{font-size:1.9rem; color:#fff; margin-bottom:.25em;}
+  h3.sub{font-size:1.15rem; color:var(--gold-soft); margin-top:30px;}
+
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px;}
+  .card{background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;}
+  .card h4{font-size:1rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.88rem; color:var(--ink-dim);}
+  .pill{display:inline-block; font-size:.66rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:3px 9px; border-radius:2px; background:var(--gold-glow); color:var(--gold); margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;}
+
+  table{width:100%; border-collapse:collapse; margin-top:16px; font-size:.86rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{background:#000; color:var(--gold); text-align:left; padding:10px 13px; font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif; border-bottom:1px solid var(--gold-dim);}
+  tbody td{padding:10px 13px; border-bottom:1px solid var(--line); color:var(--ink-dim); vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.label{color:var(--ink); font-weight:600; white-space:nowrap;}
+
+  .callout{background:rgba(201,168,76,.06); border:1px solid var(--gold-dim); border-radius:var(--radius); padding:14px 18px; margin-top:16px; font-size:.86rem; color:var(--ink-dim);}
+  .callout strong{color:var(--gold);}
+  .callout.violet{background:var(--violet-glow); border-color:var(--violet-dim);}
+  .callout.violet strong{color:var(--violet);}
+
+  .btn{background:var(--void-card2); border:1px solid var(--line); color:var(--ink); padding:9px 18px; border-radius:6px; cursor:pointer; font-size:.82rem; font-weight:600; transition:.15s;}
+  .btn:hover{border-color:var(--gold-dim); color:var(--gold-soft);}
+  .btn.primary{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .btn.primary:hover{background:var(--gold-soft);}
+  .btn:disabled{opacity:.3; cursor:default;}
+  .btn.small{padding:6px 12px; font-size:.75rem;}
+  .btn.violet{background:var(--violet); color:#060606; border-color:var(--violet);}
+
+  .send-btn{display:inline-flex; align-items:center; gap:6px; padding:7px 13px; border-radius:6px; font-size:.76rem; font-weight:600; cursor:pointer; border:1px solid; text-decoration:none;}
+  .send-btn.wa{background:var(--teal-glow); border-color:var(--teal-dim); color:var(--teal);}
+  .send-btn.wa:hover{background:rgba(74,191,163,.2);}
+  .send-btn.mail{background:var(--gold-glow); border-color:var(--gold-dim); color:var(--gold-soft);}
+  .send-btn.mail:hover{background:rgba(201,168,76,.18);}
+  .send-row{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+
+  /* ---------- Ficha form ---------- */
+  .ficha-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px;}
+  .ficha-grid .full{grid-column:1/-1;}
+  .ficha-status{font-size:.8rem; color:var(--teal); margin-top:14px;}
+
+  /* ---------- Conversation engine ---------- */
+  .flow-wrap{background:var(--void-card); border:1px solid var(--line); border-radius:12px; padding:22px 24px; margin-top:18px; position:relative;}
+  .flow-progress{font-size:.72rem; color:var(--ink-faint); font-family:'Cinzel',serif; letter-spacing:.06em; margin-bottom:8px;}
+  .flow-block{font-size:.72rem; color:var(--gold-soft); text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif; margin-bottom:8px;}
+  .flow-title{font-size:1.35rem; color:#fff; margin-bottom:10px;}
+  .flow-say{background:#000; border-left:2px solid var(--gold); padding:14px 18px; border-radius:0 6px 6px 0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--ink); margin:12px 0 18px;}
+  .flow-question{font-size:.78rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em; font-family:'Cinzel',serif; margin-bottom:10px;}
+  .opt-list{display:flex; flex-direction:column; gap:8px;}
+  .opt-btn{
+    text-align:left; background:var(--void-card2); border:1px solid var(--line); border-radius:8px;
+    padding:12px 15px; cursor:pointer; color:var(--ink-dim); font-size:.88rem; transition:.15s;
+    display:flex; align-items:flex-start; gap:10px;
+  }
+  .opt-btn:hover{border-color:var(--gold-dim); background:var(--void-card); color:var(--ink); transform:translateX(2px);}
+  .opt-tag{flex:0 0 auto; font-size:.65rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:4px; margin-top:1px;}
+  .opt-tag.n{background:var(--gold-glow); border:1px solid var(--gold-dim); color:var(--gold);}
+  .opt-tag.r{background:var(--violet-glow); border:1px solid var(--violet-dim); color:var(--violet);}
+  .opt-tag.o{background:var(--red-glow); border:1px solid var(--red-dim); color:var(--red);}
+  .flow-history{margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-size:.76rem; color:var(--ink-faint);}
+  .flow-history .hitem{padding:3px 0;}
+  .flow-restart{margin-top:16px;}
+
+  /* overlay panels (reencuadre / objeción) */
+  .overlay-panel{
+    position:absolute; inset:0; background:var(--void-soft); border:1px solid var(--violet-dim); border-radius:12px;
+    padding:22px 24px; display:none; flex-direction:column;
+  }
+  .overlay-panel.on{display:flex;}
+  .overlay-panel.obj{border-color:var(--red-dim);}
+  .overlay-label{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-family:'Cinzel',serif; color:var(--violet); margin-bottom:10px;}
+  .overlay-panel.obj .overlay-label{color:var(--red);}
+  .reframe-opt{
+    text-align:left; background:var(--void-card); border:1px solid var(--line); border-radius:8px; padding:11px 14px;
+    cursor:pointer; color:var(--ink-dim); font-size:.85rem; margin-bottom:8px;
+  }
+  .reframe-opt:hover{border-color:var(--violet-dim); color:var(--ink);}
+  .reframe-answer{background:#000; border-left:2px solid var(--violet); padding:12px 16px; border-radius:0 6px 6px 0; font-style:italic; color:var(--ink); margin-top:10px; font-size:.95rem;}
+  .obj-answer p{color:var(--ink-dim); font-size:.87rem;}
+
+  .fin-box{text-align:center; padding:30px 0;}
+  .fin-box h3{color:var(--gold); font-size:1.6rem;}
+
+  /* ---------- Checklist ---------- */
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{display:flex; gap:10px; align-items:flex-start; padding:8px 0; font-size:.87rem; color:var(--ink-dim); border-bottom:1px dashed var(--line); cursor:pointer;}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li.checked{color:var(--gold-soft); text-decoration:line-through; opacity:.7;}
+  .chk-box{flex:0 0 16px; width:16px; height:16px; border:1px solid var(--gold-dim); border-radius:3px; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--gold);}
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:10px; padding:22px 24px; margin-top:18px;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:15px;}
+  .pay-card .plan{font-weight:600; font-size:.88rem; color:var(--ink);}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin:2px 0 10px;}
+  .pay-card a.btn{display:block; text-align:center; text-decoration:none;}
+
+  footer{max-width:980px; margin:0 auto; padding:26px 22px 90px; color:var(--ink-faint); font-size:.78rem; display:flex; gap:10px; align-items:center;}
+  #callnav{
+    position:fixed; bottom:16px; left:50%; transform:translateX(-50%); z-index:80;
+    display:flex; align-items:center; gap:10px; background:var(--void-card); border:1px solid var(--gold-dim);
+    border-radius:30px; padding:6px 8px; box-shadow:0 8px 26px rgba(0,0,0,.5);
+  }
+  #callnav .navbtn{
+    width:34px; height:34px; border-radius:50%; background:var(--void-card2); border:1px solid var(--line);
+    color:var(--ink); font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.15s;
+  }
+  #callnav .navbtn:hover:not(:disabled){background:var(--gold); color:#060606; border-color:var(--gold);}
+  #callnav .navbtn:disabled{opacity:.3; cursor:default;}
+  #callnav .navlabel{min-width:150px; text-align:center; font-size:.78rem; color:var(--ink); font-weight:600;}
+  #callnav .navpos{font-size:.68rem; color:var(--ink-faint); font-weight:500; margin-top:1px;}
+  @media(max-width:760px){#callnav{bottom:10px; max-width:92vw;} #callnav .navlabel{min-width:120px;}}
+  footer svg{width:16px; height:16px; opacity:.6;}
+  .subnote{font-size:.8rem; color:var(--ink-faint);}
+
+  @media(max-width:760px){
+    .grid-3, .grid-2, .pay-grid, .ficha-grid{grid-template-columns:1fr;}
+    .brandbar{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brandbar">
+    <div class="brandmark">
+      <svg viewBox="0 0 100 100" fill="none">
+        <polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/>
+        <path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">CLOSER<span class="search"> SEARCH</span></div>
+        <div class="brand-title">Guía de Ventas Interactiva · Método Fénix Remoto</div>
+      </div>
+    </div>
+    <div class="leadname-box">Lead: <input type="text" id="leadName" placeholder="Nombre del lead"></div>
+  </div>
+  <div class="quickbar">
+    <div class="qgroup">
+      <a class="qlink" href="https://youtu.be/YsvGYVgwJRI" target="_blank" rel="noopener">▶ Vídeo del taller</a>
+      <button class="qsend wa" onclick="sendWA(TALLER_MSG)" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Método Fénix Remoto', TALLER_MSG)" title="Enviar por correo">✉️</button>
+    </div>
+    <div class="qgroup">
+      <a class="qlink" href="https://fenixremoto.com/video-preparacion-llamada" target="_blank" rel="noopener">▶ Vídeo de preparación</a>
+      <button class="qsend wa" onclick="sendWA(PREP_MSG)" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Antes de tu llamada · Método Fénix Remoto', PREP_MSG)" title="Enviar por correo">✉️</button>
+    </div>
+    <div class="qgroup">
+      <a class="qlink gold" href="https://link.fastpaydirect.com/payment-link/6a492173d6425bc946847e94" target="_blank" rel="noopener">💳 Pago único 1.500€</a>
+      <button class="qsend wa" onclick="sendWA(PAY_LINKS.unico.txt)" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.unico.txt)" title="Enviar por correo">✉️</button>
+    </div>
+    <div class="qgroup">
+      <a class="qlink gold" href="https://link.fastpaydirect.com/payment-link/6a47ffeda655fa0b802a2990" target="_blank" rel="noopener">💳 2 plazos</a>
+      <button class="qsend wa" onclick="sendWA(PAY_LINKS.plazos2.txt)" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.plazos2.txt)" title="Enviar por correo">✉️</button>
+    </div>
+    <div class="qgroup">
+      <a class="qlink gold" href="https://link.fastpaydirect.com/payment-link/6a479b1bd6425bc946847c01" target="_blank" rel="noopener">💳 3 plazos</a>
+      <button class="qsend wa" onclick="sendWA(PAY_LINKS.plazos3.txt)" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.plazos3.txt)" title="Enviar por correo">✉️</button>
+    </div>
+    <div class="qgroup">
+      <a class="qlink gold" href="https://fenixremoto.com/bienvenida-fenix" target="_blank" rel="noopener">🚀 Onboarding</a>
+      <button class="qsend wa" onclick="sendWA(onboardMsg())" title="Enviar por WhatsApp">📱</button>
+      <button class="qsend mail" onclick="sendMail('Bienvenida a Método Fénix Remoto', onboardMsg())" title="Enviar por correo">✉️</button>
+    </div>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tabbtn active" data-tab="ficha">Ficha del lead</button>
+    <button class="tabbtn" data-tab="leads">Leads</button>
+    <button class="tabbtn" data-tab="oferta">Oferta</button>
+    <button class="tabbtn" data-tab="marcos">Marcos</button>
+    <button class="tabbtn" data-tab="llamada">Llamada en vivo</button>
+    <button class="tabbtn" data-tab="cierre">Cierre y pagos</button>
+    <button class="tabbtn" data-tab="ficha-final">Ficha a Word</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= FICHA DEL LEAD ================= -->
+  <section class="tabpanel active" id="tab-ficha">
+    <div class="section-tag">Antes de empezar</div>
+    <h2 class="page-title">Ficha del lead</h2>
+    <p class="lede">Rellena esto al principio de la conversación. Estos datos se usan en el guion (sustituyen [Nombre] automáticamente) y forman la ficha que exportarás a Word al final para pegar en Sequoia.</p>
+
+    <div style="max-width:260px; margin-top:18px;">
+      <label>Comercial que lo gestiona</label>
+      <select id="f-comercial">
+        <option value="">Selecciona...</option>
+        <option value="Elena">Elena</option>
+        <option value="Rocío">Rocío</option>
+        <option value="Sergio">Sergio</option>
+      </select>
+    </div>
+    <div class="ficha-grid">
+      <div><label>Nombre</label><input type="text" id="f-nombre" placeholder="Nombre del lead"></div>
+      <div><label>Teléfono</label><input type="tel" id="f-telefono" placeholder="+34 6XX XXX XXX"></div>
+      <div><label>Email</label><input type="email" id="f-email" placeholder="correo@ejemplo.com"></div>
+      <div>
+        <label>Origen</label>
+        <select id="f-origen">
+          <option value="A">A · Reenganche WhatsApp abierto</option>
+          <option value="B" selected>B · WhatsApp caliente → Sequoia</option>
+          <option value="C">C · Web (vídeo de entrada)</option>
+        </select>
+      </div>
+      <div><label>Edad / ocupación</label><input type="text" id="f-perfil" placeholder="ej: 42 años, consultora"></div>
+      <div><label>Tiempo teletrabajando</label><input type="text" id="f-tiempo" placeholder="ej: 5 años"></div>
+      <div class="full"><label>Problema principal</label><input type="text" id="f-problema" placeholder="ej: dolor lumbar al levantarse, cadera bloqueada"></div>
+      <div class="full"><label>Qué ha probado antes</label><input type="text" id="f-intentos" placeholder="ej: fisio, dos gimnasios, yoga"></div>
+      <div><label>Objetivo / deseo</label><input type="text" id="f-objetivo" placeholder="ej: volver a jugar con sus hijos sin dolor"></div>
+      <div><label>Detonante (¿por qué ahora?)</label><input type="text" id="f-detonante" placeholder="ej: le está afectando en el trabajo"></div>
+    </div>
+
+    <h3 class="sub">Cita agendada</h3>
+    <div class="ficha-grid">
+      <div><label>Día propuesto</label><input type="text" id="f-dia" placeholder="ej: jueves 21 de agosto"></div>
+      <div><label>Hora propuesta</label><input type="text" id="f-hora" placeholder="ej: 17:30"></div>
+      <div class="full"><label>Enlace de la videollamada</label><input type="text" id="f-enlace" placeholder="ej: enlace de Zoom/Meet para la llamada"></div>
+    </div>
+    <div class="callout" id="ficha-pair" style="display:none;"></div>
+    <div class="ficha-status" id="ficha-status"></div>
+  </section>
+
+  <!-- ================= LEADS ================= -->
+  <section class="tabpanel" id="tab-leads">
+    <div class="section-tag">Antes de la llamada</div>
+    <h2 class="page-title">Gestión de leads: los 3 orígenes</h2>
+    <p class="lede">El closer gestiona su CRM en Sequoia desde tres orígenes de lead distintos, cada uno con un primer contacto diferente.</p>
+    <div class="card">
+      <div class="pill">Origen A</div><h4>Reenganche · WhatsApp abierto</h4>
+      <p>Conversaciones que quedaron abiertas y sin resolver, con 15+ días sin respuesta. Se activa solo sobre estas — no sobre leads nuevos ni descartados.</p>
+      <div id="rmsg-list"></div>
+      <div class="callout"><strong>Regla:</strong> si el lead responde en cualquier punto, sale de esta secuencia y entra en el procedimiento normal (Origen B/C). Si no responde tras el mensaje 6, se marca en Sequoia como pausado.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:18px;">
+      <div class="card">
+        <div class="pill">Origen B</div><h4>WhatsApp caliente → Sequoia</h4>
+        <p>Conversaciones que arrancan por WhatsApp y se redirigen automáticamente a Sequoia como lead nuevo. Se tratan como <strong style="color:var(--ink);">lead caliente</strong>: contacto inmediato.</p>
+        <div class="pill" style="margin-top:10px;">Paso 1 · Mensaje inicial</div>
+        <div class="reframe-answer" style="margin-top:4px;" id="prev-origenb-1"></div>
+        <div class="send-row"><button class="send-btn wa" onclick="sendWA(ORIGENB_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', ORIGENB_MSG)">✉️ Correo</button></div>
+        <div class="pill" style="margin-top:14px;">Paso 2 · Si acepta</div>
+        <div class="reframe-answer" style="margin-top:4px;" id="prev-origenb-2"></div>
+        <div class="send-row"><button class="send-btn wa" onclick="sendWA(ORIGENB_STEP2)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', ORIGENB_STEP2)">✉️ Correo</button></div>
+      </div>
+      <div class="card">
+        <div class="pill">Origen C</div><h4>Web · vídeo de entrada</h4>
+        <p>Leads que se registran en la web tras ver el <a href="https://youtu.be/YsvGYVgwJRI" target="_blank" rel="noopener">vídeo del taller</a>. El primer mensaje debe conectar con lo que vieron.</p>
+        <div class="pill" style="margin-top:10px;">Paso 1 · Mensaje inicial</div>
+        <div class="reframe-answer" style="margin-top:4px;" id="prev-origenc-1"></div>
+        <div class="send-row"><button class="send-btn wa" onclick="sendWA(ORIGENC_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', ORIGENC_MSG)">✉️ Correo</button></div>
+        <div class="send-row"><button class="send-btn wa" onclick="sendWA(TALLER_MSG)">📱 Reenviar vídeo del taller</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', TALLER_MSG)">✉️ Reenviar</button></div>
+        <div class="pill" style="margin-top:14px;">Paso 2 · Si responde</div>
+        <div class="reframe-answer" style="margin-top:4px;" id="prev-origenc-2"></div>
+        <div class="send-row"><button class="send-btn wa" onclick="sendWA(ORIGENC_STEP2)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', ORIGENC_STEP2)">✉️ Correo</button></div>
+      </div>
+    </div>
+    <div class="callout"><strong>Orden de prioridad diario:</strong> primero Origen B, después Origen C, y el Origen A se trabaja en bloques dedicados aparte.</div>
+
+    <h3 class="sub">Paso 3 · Feedback (cualquier origen, una vez cualificado)</h3>
+    <div class="card">
+      <p>Sintetiza lo que el lead ha contado usando sus propios datos (ver "Problema" en la ficha), para que note escucha real antes de avanzar.</p>
+      <div class="reframe-answer" style="margin-top:8px;" id="prev-feedback"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(FEEDBACK_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', FEEDBACK_MSG)">✉️ Correo</button></div>
+    </div>
+
+    <h3 class="sub">Paso 4 · Cierre para agendar</h3>
+    <div class="card">
+      <p>Se transiciona y se propone la videollamada, con los datos ya recogidos en la ficha.</p>
+      <div class="reframe-answer" style="margin-top:8px;" id="prev-transicion"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(TRANSICION_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', TRANSICION_MSG)">✉️ Correo</button></div>
+      <div class="reframe-answer" style="margin-top:8px;" id="prev-propuesta"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(PROPUESTA_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', PROPUESTA_MSG)">✉️ Correo</button></div>
+    </div>
+
+    <h3 class="sub">Paso 5 · Proponer día y hora</h3>
+    <div class="card">
+      <p>Rellena "Día propuesto" y "Hora propuesta" en la ficha, y confirma el hueco concreto con el lead.</p>
+      <div class="reframe-answer" style="margin-top:8px;" id="prev-diahora"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(DIAHORA_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', DIAHORA_MSG)">✉️ Correo</button></div>
+    </div>
+
+    <h3 class="sub">Paso 6 · Tras agendar la cita</h3>
+    <div class="card">
+      <h4>Enviar el vídeo de preparación</h4>
+      <p>En cuanto se confirma la videollamada, se envía el vídeo de preparación para que el lead aproveche mejor la valoración.</p>
+      <div class="reframe-answer" id="prev-prep"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(PREP_MSG)">📱 Enviar vídeo de preparación</button><button class="send-btn mail" onclick="sendMail('Antes de tu llamada · Método Fénix Remoto', PREP_MSG)">✉️ Enviar</button></div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <h4>Recordatorio del día y la hora</h4>
+      <p>Recordatorio con el día, la hora y el enlace de conexión ya confirmados en la ficha.</p>
+      <div class="reframe-answer" id="prev-recordatorio"></div>
+      <div class="send-row"><button class="send-btn wa" onclick="sendWA(RECORDATORIO_MSG)">📱 Enviar recordatorio</button><button class="send-btn mail" onclick="sendMail('Recordatorio de tu llamada · Método Fénix Remoto', RECORDATORIO_MSG)">✉️ Enviar</button></div>
+    </div>
+  </section>
+
+  <!-- ================= OFERTA ================= -->
+  <section class="tabpanel" id="tab-oferta">
+    <div class="section-tag">El producto</div>
+    <h2 class="page-title">Avatar, pilares y estructura del programa</h2>
+    <h3 class="sub">Los 2 pilares</h3>
+    <div class="grid-2">
+      <div class="card"><div class="pill">Pilar 1</div><h4>Estructura Nutricional Adaptada</h4><p>Comida real, nutrición evolutiva. Estabiliza energía y saciedad sin contar calorías ni dietas restrictivas.</p></div>
+      <div class="card"><div class="pill">Pilar 2</div><h4>Recuperación Física Progresiva</h4><p>Movilidad Joint by Joint → control corporal / barefoot → fuerza funcional. 30–40 min, 3x/semana, desde casa.</p></div>
+    </div>
+    <h3 class="sub">Las 3 fases (6 meses)</h3>
+    <table>
+      <thead><tr><th>Fase</th><th>Contenido</th><th>Resultado esperado</th></tr></thead>
+      <tbody>
+        <tr><td class="label">1. Diagnóstico — Mes 1</td><td>Escaneo Fénix, app, Reset Joint by Joint, Liberación Antisilla, nutrición desde el día 1</td><td>Menos tensión cervical, menos rigidez matutina, energía más estable</td></tr>
+        <tr><td class="label">2. Reconstrucción — Meses 2–4</td><td>Integración mensual, Fuerza Funcional Remota, corrección por vídeo, Radar de Consistencia</td><td>Sin dolor lumbar, movilidad de cadera recuperada, fuerza funcional real</td></tr>
+        <tr><td class="label">3. Consolidación — Meses 5–6</td><td>Ajustes mensuales, guías de teletrabajo saludable, protocolos a largo plazo</td><td>Movilidad, fuerza y energía sostenidas + herramientas de por vida</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">Bonus (valor total 891&nbsp;€)</h3>
+    <div class="grid-3">
+      <div class="card"><div class="pill">397&nbsp;€</div><h4>Diagnóstico Nutricional Evolutivo</h4><p>Estudio personalizado de alimentación, hambre, ansiedad y energía.</p></div>
+      <div class="card"><div class="pill">297&nbsp;€</div><h4>Corrección Funcional Fénix</h4><p>Revisión técnica por vídeo en profundidad para prevenir lesiones.</p></div>
+      <div class="card"><div class="pill">197&nbsp;€</div><h4>Oficina Antisedentaria</h4><p>Sistema para adaptar el espacio de trabajo y reducir el impacto físico.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= LLAMADA EN VIVO (MOTOR RAMIFICADO) ================= -->
+  <!-- ================= MARCOS ================= -->
+  <section class="tabpanel" id="tab-marcos">
+    <div class="section-tag">Antes de descolgar</div>
+    <h2 class="page-title">Marcos mentales del closer</h2>
+    <p class="lede">Reglas de disciplina que el propio script y el manual marcan como obligatorias. No son técnicas de venta al lead — son cómo debes sostenerte tú durante la llamada.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>El que habla primero pierde</h4>
+        <p>Tras dar la cifra completa de la inversión, silencio. El cliente es quien tiene que dar el siguiente paso.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>Nunca justifiques el precio</h4>
+        <p>Ante "es caro", no defiendas la cifra. Pregunta "¿caro respecto a qué?" y deja que el lead revele el problema real.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>Rompe puentes antes de argumentar</h4>
+        <p>Antes de vender la solución, indaga qué ha probado antes y por qué no le funcionó. Sin eso, cualquier argumento suena genérico.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>El lead debe hablar más que tú</h4>
+        <p>Una pregunta importante por mensaje. Escucha real, no interrogatorio. No repitas una pregunta ya respondida.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>No repitas el descubrimiento</h4>
+        <p>Lee el historial completo antes de entrar en la llamada o retomar una conversación. No reinicies el guion si ya existe contexto.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Regla</div>
+        <h4>Los bloques obligatorios no se improvisan</h4>
+        <p>Situación deseada y el pitch de los pilares tienen estructura fija marcada como obligatoria en el guion — no hay libertad creativa ahí.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Límites que no se cruzan</h3>
+    <div class="grid-2">
+      <div class="card"><h4>No diagnosticar</h4><p>No interpretar síntomas ni pruebas médicas. Ante algo grave o reciente, recomendar valoración sanitaria antes de continuar.</p></div>
+      <div class="card"><h4>No prometer curación</h4>
+      <p>Nunca garantizar eliminación del dolor, resultados exactos en fecha concreta, ni sustituir tratamiento médico o fisioterapia.</p></div>
+      <div class="card"><h4>No criticar a otros profesionales</h4><p>No hablar mal de médicos, fisioterapeutas, entrenadores o métodos que el lead haya probado antes.</p></div>
+      <div class="card"><h4>No manipular con miedo, culpa o dolor</h4><p>El dolor se explora para entender al lead, no para presionarlo hacia el cierre.</p></div>
+    </div>
+  </section>
+
+  <section class="tabpanel" id="tab-llamada">
+    <div class="section-tag">Durante la llamada</div>
+    <h2 class="page-title">Conversación guiada</h2>
+    <p class="lede">Pulsa la opción que más se parezca a lo que acaba de decir el lead. La guía salta a la pregunta que tenga sentido a continuación. Si pregunta algo o pone una objeción, se abre el panel correspondiente y vuelves justo donde estabas.</p>
+
+    <div class="flow-wrap" id="flow-wrap">
+      <div class="flow-progress" id="flow-progress"></div>
+      <div class="flow-block" id="flow-block"></div>
+      <div class="flow-title" id="flow-title"></div>
+      <div class="flow-say" id="flow-say"></div>
+      <div class="flow-question">¿Qué ha respondido el lead?</div>
+      <div class="opt-list" id="opt-list"></div>
+      <div class="flow-history" id="flow-history"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn small flow-restart" onclick="restartFlow()">↺ Reiniciar conversación</button>
+        <button class="btn small" style="border-color:var(--red-dim); color:var(--red);" onclick="openObjBank()">📋 Ver banco de objeciones (8)</button>
+      </div>
+
+      <!-- REENCUADRE OVERLAY -->
+      <div class="overlay-panel" id="panel-reencuadre">
+        <div class="overlay-label">🔄 Reencuadre · ¿qué resistencia notas?</div>
+        <div id="reencuadre-opts"></div>
+        <div id="reencuadre-answer"></div>
+        <button class="btn violet small" style="margin-top:16px; align-self:flex-start;" onclick="closeOverlay('reencuadre')">✓ Resuelto — volver a la conversación</button>
+      </div>
+
+      <!-- OBJECION OVERLAY -->
+      <div class="overlay-panel obj" id="panel-objecion">
+        <div class="overlay-label">⚠ Objeción del lead</div>
+        <div id="objecion-content" class="obj-answer"></div>
+        <button class="btn small" style="margin-top:16px; align-self:flex-start; border-color:var(--red-dim); color:var(--red);" onclick="closeOverlay('objecion')">✓ Resuelta — volver a la conversación</button>
+      </div>
+
+      <!-- BANCO COMPLETO DE OBJECIONES (acceso siempre disponible) -->
+      <div class="overlay-panel obj" id="panel-objbank">
+        <div class="overlay-label">📋 Banco de objeciones — pulsa la que ha puesto el lead</div>
+        <div id="objbank-list"></div>
+        <div id="objbank-detail"></div>
+        <button class="btn small" style="margin-top:16px; align-self:flex-start; border-color:var(--red-dim); color:var(--red);" onclick="closeObjBank()">✓ Volver a la conversación</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CIERRE Y PAGOS ================= -->
+  <section class="tabpanel" id="tab-cierre">
+    <div class="section-tag">Cierre</div>
+    <h2 class="page-title">Inversión, pagos y onboarding</h2>
+    <p class="lede">1.500&nbsp;€ IVA incluido por los 6 meses. Da la cifra completa y cállate.</p>
+
+    <div class="paybox">
+      <h3 style="color:var(--gold); font-family:'Cinzel',serif; font-size:1.05rem;">Enlaces de pago</h3>
+      <div class="pay-grid">
+        <div class="pay-card"><div class="plan">Pago único</div><div class="amount">1.500&nbsp;€</div><a class="btn primary" href="https://link.fastpaydirect.com/payment-link/6a492173d6425bc946847e94" target="_blank" rel="noopener">Abrir enlace</a>
+          <div class="send-row" style="margin-top:8px;"><button class="send-btn wa" onclick="sendWA(PAY_LINKS.unico.txt)">📱</button><button class="send-btn mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.unico.txt)">✉️</button></div>
+        </div>
+        <div class="pay-card"><div class="plan">2 plazos</div><div class="amount">750&nbsp;€ + 750&nbsp;€</div><a class="btn primary" href="https://link.fastpaydirect.com/payment-link/6a47ffeda655fa0b802a2990" target="_blank" rel="noopener">Abrir enlace</a>
+          <div class="send-row" style="margin-top:8px;"><button class="send-btn wa" onclick="sendWA(PAY_LINKS.plazos2.txt)">📱</button><button class="send-btn mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.plazos2.txt)">✉️</button></div>
+        </div>
+        <div class="pay-card"><div class="plan">3 plazos</div><div class="amount">500&nbsp;€ x3</div><a class="btn primary" href="https://link.fastpaydirect.com/payment-link/6a479b1bd6425bc946847c01" target="_blank" rel="noopener">Abrir enlace</a>
+          <div class="send-row" style="margin-top:8px;"><button class="send-btn wa" onclick="sendWA(PAY_LINKS.plazos3.txt)">📱</button><button class="send-btn mail" onclick="sendMail('Enlace de pago · Método Fénix Remoto', PAY_LINKS.plazos3.txt)">✉️</button></div>
+        </div>
+      </div>
+      <div class="send-row">
+        <button class="send-btn wa" onclick="sendWA(onboardMsg())">📱 Enviar onboarding por WhatsApp</button>
+        <button class="send-btn mail" onclick="sendMail('Bienvenida a Método Fénix Remoto', onboardMsg())">✉️ Enviar onboarding por correo</button>
+      </div>
+      <p class="subnote" style="margin-top:10px;">Onboarding: <a href="https://fenixremoto.com/bienvenida-fenix" target="_blank" rel="noopener">fenixremoto.com/bienvenida-fenix</a></p>
+    </div>
+
+    <h3 class="sub">Checklist antes de colgar</h3>
+    <ul class="checklist" id="checklist"></ul>
+  </section>
+
+  <!-- ================= FICHA A WORD ================= -->
+  <section class="tabpanel" id="tab-ficha-final">
+    <div class="section-tag">Después del cierre</div>
+    <h2 class="page-title">Ficha de la llamada → Word para Sequoia</h2>
+    <p class="lede">Cierra aquí la llamada: registra el resultado y exporta la ficha con la cabecera de Sequoia lista para copiar y pegar en el CRM.</p>
+
+    <div class="ficha-grid">
+      <div>
+        <label>Estado final</label>
+        <select id="r-estado">
+          <option value="Cerrado">Cerrado</option>
+          <option value="Seguimiento agendado">Seguimiento agendado</option>
+          <option value="Descartado">Descartado</option>
+        </select>
+      </div>
+      <div>
+        <label>Plan de pago</label>
+        <select id="r-plan">
+          <option value="—">—</option>
+          <option value="Pago único (1.500€)">Pago único (1.500€)</option>
+          <option value="2 plazos (750€+750€)">2 plazos (750€+750€)</option>
+          <option value="3 plazos (500€x3)">3 plazos (500€x3)</option>
+        </select>
+      </div>
+      <div class="full">
+        <label>Notas de la llamada</label>
+        <textarea id="r-notas" rows="3" placeholder="Resumen breve para dejar en Sequoia..."></textarea>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top:18px;">
+      <strong>Ficha para Sequoia:</strong> genera un documento Word con la cabecera del CRM (Nombre, Teléfono, Email, Origen, Estado, Notas) listo para copiar y pegar.
+    </div>
+    <button class="btn primary" style="margin-top:12px;" onclick="exportWord()">⬇ Exportar ficha a Word</button>
+  </section>
+
+</main>
+
+<footer>
+  <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="5" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  Closer Search — Guía de ventas interactiva para el equipo de Closers · Método Fénix Remoto.
+</footer>
+
+<div id="callnav">
+  <button class="navbtn" id="cn-prev" onclick="callNav(-1)" title="Pregunta anterior">‹</button>
+  <div class="navlabel">
+    <div id="cn-title">—</div>
+    <div id="cn-pos" class="navpos"></div>
+  </div>
+  <button class="navbtn" id="cn-next" onclick="callNav(1)" title="Pregunta siguiente">›</button>
+</div>
+
+<script>
+/* ================= TABS ================= */
+document.querySelectorAll('.tabbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function goTab(name){
+  const btn = document.querySelector('.tabbtn[data-tab="'+name+'"]');
+  if(btn) btn.click();
+}
+
+/* ================= FICHA DEL LEAD (estado global) ================= */
+const FICHA_FIELDS = ['comercial','nombre','telefono','email','origen','perfil','tiempo','problema','intentos','objetivo','detonante','dia','hora','enlace'];
+let ficha = {};
+function updateFichaPair(){
+  const box = document.getElementById('ficha-pair');
+  const com = (ficha.comercial||'').trim();
+  const nom = (ficha.nombre||'').trim();
+  if(!com && !nom){ box.style.display='none'; return; }
+  box.style.display='block';
+  box.innerHTML = '<strong>'+(com||'[Comercial sin elegir]')+'</strong> gestionando a <strong>'+(nom||'[Lead sin nombre]')+'</strong>';
+}
+function renderLeadsMessages(){
+  const map = {
+    'prev-origenb-1': typeof ORIGENB_MSG!=='undefined' ? ORIGENB_MSG : null,
+    'prev-origenb-2': typeof ORIGENB_STEP2!=='undefined' ? ORIGENB_STEP2 : null,
+    'prev-origenc-1': typeof ORIGENC_MSG!=='undefined' ? ORIGENC_MSG : null,
+    'prev-origenc-2': typeof ORIGENC_STEP2!=='undefined' ? ORIGENC_STEP2 : null,
+    'prev-feedback': typeof FEEDBACK_MSG!=='undefined' ? FEEDBACK_MSG : null,
+    'prev-transicion': typeof TRANSICION_MSG!=='undefined' ? TRANSICION_MSG : null,
+    'prev-propuesta': typeof PROPUESTA_MSG!=='undefined' ? PROPUESTA_MSG : null,
+    'prev-prep': typeof PREP_MSG!=='undefined' ? PREP_MSG : null,
+    'prev-diahora': typeof DIAHORA_MSG!=='undefined' ? DIAHORA_MSG : null,
+    'prev-recordatorio': typeof RECORDATORIO_MSG!=='undefined' ? RECORDATORIO_MSG : null
+  };
+  Object.keys(map).forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && map[id]) el.textContent = '"'+withName(map[id])+'"';
+  });
+}
+FICHA_FIELDS.forEach(f=>{
+  const el = document.getElementById('f-'+f);
+  el.value = localStorage.getItem('fenix_f_'+f) || '';
+  ficha[f] = el.value;
+  el.addEventListener('input',()=>{
+    ficha[f] = el.value;
+    localStorage.setItem('fenix_f_'+f, el.value);
+    document.getElementById('leadName').value = ficha.nombre;
+    localStorage.setItem('fenix_leadname', ficha.nombre);
+    document.getElementById('ficha-status').textContent = '✓ Guardado en este navegador';
+    updateFichaPair();
+    if(typeof renderReenganche==='function') renderReenganche();
+    if(typeof renderLeadsMessages==='function') renderLeadsMessages();
+  });
+});
+const leadInput = document.getElementById('leadName');
+leadInput.value = ficha.nombre || localStorage.getItem('fenix_leadname') || '';
+leadInput.addEventListener('input', ()=>{
+  localStorage.setItem('fenix_leadname', leadInput.value);
+  ficha.nombre = leadInput.value;
+  document.getElementById('f-nombre').value = leadInput.value;
+  updateFichaPair();
+  if(typeof renderReenganche==='function') renderReenganche();
+  if(typeof renderLeadsMessages==='function') renderLeadsMessages();
+});
+updateFichaPair();
+
+function withName(text){
+  const full = (ficha.nombre || leadInput.value || '').trim();
+  const name = full ? full.split(/\s+/)[0] : '[Nombre]';
+  let out = text.replace(/\[Nombre\]/g, name);
+  const map = {Problema:'problema', Objetivo:'objetivo', Intentos:'intentos', Detonante:'detonante', Tiempo:'tiempo', Comercial:'comercial', Dia:'dia', Hora:'hora', Enlace:'enlace'};
+  Object.keys(map).forEach(tag=>{
+    const val = (ficha[map[tag]] || '').trim();
+    const re = new RegExp('\\['+tag+'\\]','g');
+    out = out.replace(re, val || '['+tag+']');
+  });
+  return out;
+}
+function sendWA(text){ window.open('https://wa.me/?text=' + encodeURIComponent(withName(text)), '_blank'); }
+function sendMail(subject, text){ window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(withName(text)); }
+function onboardMsg(){ return "Hola [Nombre] 🎉 ¡Bienvenido/a a Método Fénix Remoto! Aquí tienes tu acceso de bienvenida para arrancar: https://fenixremoto.com/bienvenida-fenix"; }
+
+const TALLER_MSG = "Hola [Nombre], te hago llegar este recurso porque creo que puede ayudarte con lo que me has contado. Cuando puedas verlo, me cuentas qué te ha parecido: https://youtu.be/YsvGYVgwJRI";
+const PREP_MSG = "Hola [Nombre], antes de la llamada es importante que veas este vídeo. Así podrás aprovechar mucho mejor la valoración: https://fenixremoto.com/video-preparacion-llamada";
+const ORIGENB_MSG = "Hola [Nombre] 😊 ¿Qué tal? Soy [Comercial], del equipo de Método Fénix Remoto. He visto que te gustaría conocer un poco más sobre el método. Antes de contarte cómo trabajamos, ¿te importa si te hago un par de preguntas rápidas? Así entiendo un poco mejor tu situación y te puedo orientar de la mejor forma.";
+const ORIGENC_MSG = "Hola [Nombre] 😊 Soy [Comercial], del equipo de Método Fénix Remoto. He visto que te registraste en el taller gratuito \"Cómo reconstruir tu cuerpo en 90 días aunque lleves años atrapado en la silla\". ¿Qué fue lo que más te llamó la atención del taller o qué te gustaría conseguir?";
+const ORIGENB_STEP2 = "Genial. Cuéntame, ¿cuál es la principal molestia o limitación física que estás teniendo ahora mismo?";
+const ORIGENC_STEP2 = "Cuéntame, ¿qué es lo que más te limita ahora mismo?";
+const FEEDBACK_MSG = "Por lo que me cuentas — [Problema] —, entiendo que quieras encontrar una forma de solucionarlo.";
+const TRANSICION_MSG = "Por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma y valorar si podemos ayudarte de una forma adaptada a tu situación.";
+const PROPUESTA_MSG = "¿Te parece que organicemos una videollamada de valoración para ver tu caso con más detalle?";
+const DIAHORA_MSG = "¿Te viene bien el [Dia] a las [Hora] para la videollamada?";
+const RECORDATORIO_MSG = "Hola [Nombre], te recuerdo tu videollamada de valoración: [Dia] a las [Hora]. Aquí tienes el enlace de conexión: [Enlace]";
+renderLeadsMessages();
+
+const PAY_LINKS = {
+  unico: {label:'Pago único', txt:"Hola [Nombre], aquí tienes el enlace para completar tu inscripción a Método Fénix Remoto (pago único, 1.500€): https://link.fastpaydirect.com/payment-link/6a492173d6425bc946847e94"},
+  plazos2: {label:'2 plazos', txt:"Hola [Nombre], aquí tienes el enlace para completar tu inscripción a Método Fénix Remoto (2 plazos de 750€): https://link.fastpaydirect.com/payment-link/6a47ffeda655fa0b802a2990"},
+  plazos3: {label:'3 plazos', txt:"Hola [Nombre], aquí tienes el enlace para completar tu inscripción a Método Fénix Remoto (3 plazos de 500€): https://link.fastpaydirect.com/payment-link/6a479b1bd6425bc946847c01"}
+};
+function payButtonsHtml(){
+  return '<div class="send-row" style="margin-top:10px;">' + Object.values(PAY_LINKS).map(p=>
+    '<button class="send-btn wa" onclick="sendWA(\''+p.txt.replace(/'/g,"\\'")+'\')">📱 '+p.label+'</button>'+
+    '<button class="send-btn mail" onclick="sendMail(\'Enlace de pago · Método Fénix Remoto\',\''+p.txt.replace(/'/g,"\\'")+'\')">✉️ '+p.label+'</button>'
+  ).join('') + '</div>';
+}
+
+/* ================= OBJECIONES (banco, id-keyed) ================= */
+const OBJ = {
+  pensar:{q:'"Me lo tengo que pensar"', a:"Aísla cuál de las tres dudas reales está detrás: (1) si el método es lo que busca, (2) si le puede ayudar a él/ella concretamente, (3) si será capaz de sostener el proceso. Trabaja certeza en el producto o en sí mismo según cuál sea.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Cuál de estas tres crees que es la que más estás pensando?"},
+  caro:{q:'"Es caro / es mucho dinero"', a:"Nunca justifiques el precio. Si compara con alternativas más baratas, pregunta por qué entonces no está ya trabajando con ellas — normalmente revela desconfianza.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Caro respecto a qué?"},
+  dinero:{q:'"No tengo dinero"', a:"Aísla el dinero del compromiso real. Si dice que sí lo haría, negocia opciones de pago (mínimo 40% en el primer pago).", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Si el dinero no fuera un problema, ¿harías el programa?"},
+  garantia:{q:'"¿Tienes garantía?"', a:"Preguntar por garantía de devolución suele señalar falta de compromiso. La garantía real es el acompañamiento personal si cumple su parte.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Si tú cumples tu parte, yo voy a trabajar codo a codo contigo hasta que recuperes tu cuerpo."},
+  pareja:{q:'"Necesito hablarlo con mi pareja"', a:"Propón una llamada corta de 15–20 min con ambos, o pregunta qué necesitaría para explicárselo bien. Fija día y hora de seguimiento.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Por qué no hacemos una llamada rápida de 15-20 minutos los tres juntos?"},
+  lesion:{q:'"Tengo miedo de lesionarme"', a:"El primer mes no hay fuerza pesada ni HIIT, solo movilidad y control corporal partiendo del nivel real, con corrección técnica por vídeo.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Solo cuando tu cuerpo está preparado, entramos en fuerza funcional progresiva."},
+  tiempo:{q:'"No tengo tiempo para entrenar"', a:"Son 30–40 min, 3x/semana, desde casa. Compáralo con el tiempo que ya invierte gestionando dolor y cansancio.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Cuántas horas a la semana inviertes ahora gestionando el dolor o el cansancio?"},
+  probado_todo:{q:'"Ya he probado de todo y no ha funcionado"', a:"Pregunta qué probó exactamente y si estaba diseñado para revertir años de teletrabajo en el orden correcto. La respuesta suele ser que no.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. No has fallado tú. Han fallado los métodos porque ninguno estaba diseñado para tu punto de partida real."}
+};
+
+/* ================= REENCUADRES (banco fijo, selección manual) ================= */
+const REFRAMES = [
+  {label:"Duda si el método funcionará para su caso concreto", txt:"Entiendo la duda — es normal después de haber probado cosas que no funcionaron. ¿Qué necesitarías ver para confiar en que esta vez sí encaja con tu caso?"},
+  {label:"Duda de sí mismo/a, no se ve capaz de sostenerlo", txt:"Eso que sientes es habitual antes de empezar algo nuevo. Muchos con tu mismo perfil sentían lo mismo y lo consiguieron. ¿Qué es lo que más te hace dudar de ti mismo/a ahora mismo?"},
+  {label:"Pregunta técnica o de curiosidad, no es resistencia real", txt:"Buena pregunta — te lo aclaro con un dato concreto del programa y seguimos. ¿Te resuelve la duda o quieres que profundice en algo más?"},
+  {label:"Dice que no es el momento / no es prioridad ahora", txt:"Lo entiendo. Solo por curiosidad: si no fuera ahora, ¿cuándo crees que sería el momento? A veces esperar tiene un coste que no se ve a simple vista."}
+];
+
+/* ================= GRAFO DE LA CONVERSACIÓN ================= */
+const NODES = {
+  n1:{block:"1 · Química", title:"Apertura", say:"¡Hola [Nombre]! ¿Qué tal estás? ¿Desde dónde me llamas?", cont:'n1b', options:[
+    {t:'Responde con normalidad, sigue la charla', tag:'n', next:'n1b'},
+    {t:'Está algo frío/seco al principio', tag:'n', next:'n1b'},
+    {t:'Hace una pregunta antes de empezar (ej. cuánto dura la llamada)', tag:'r', next:'REENCUADRE'},
+    {t:'Va directo a preguntar por el precio', tag:'r', next:'REENCUADRE'}
+  ]},
+  n1b:{block:"2 · Encuadre", title:"Cómo va a ir la llamada", say:"Soy [Comercial], del equipo de Método Fénix Remoto. Quiero sobre todo saber tu situación actual, qué está pasando ahora mismo… Dónde quieres estar también. Si veo que encaja y te puedo ayudar, te muestro cómo sería el paso a paso exacto… que tú lo veas todo. En caso contrario si veo que no te puedo ayudar te lo diré que no pasa absolutamente nada, ¿te parece?", cont:'n2', options:[
+    {t:'Acepta el encuadre sin más ("te parece bien")', tag:'n', next:'n2'},
+    {t:'Acepta pero pregunta cuánto va a durar la llamada', tag:'r', next:'REENCUADRE'},
+    {t:'Pregunta si al final le vas a intentar vender algo sí o sí', tag:'r', next:'REENCUADRE'},
+    {t:'Se muestra impaciente, quiere ir directo al grano', tag:'n', next:'n2'}
+  ]},
+  n2:{block:"3 · Descubrimiento", title:"Perfil y contexto", say:"¿Cuánto tiempo llevas teletrabajando y cuántas horas al día pasas sentado/a?", cont:'n3', options:[
+    {t:'Lleva años y muchas horas sentado', tag:'n', next:'n3'},
+    {t:'Es reciente pero ya nota molestias', tag:'n', next:'n3'},
+    {t:'Menciona más de una molestia física a la vez', tag:'n', next:'n3'},
+    {t:'Hace una pregunta antes de responder (ej. por qué le preguntas esto)', tag:'r', next:'REENCUADRE'}
+  ]},
+  n3:{block:"3 · Descubrimiento", title:"Qué ha probado antes", say:"¿Qué has probado hasta ahora para solucionarlo (gimnasio, fisio, yoga, rutinas online)?", cont:'n4', options:[
+    {t:'Ha probado varias cosas sin resultado', tag:'n', next:'n4'},
+    {t:'Nunca ha probado nada estructurado', tag:'n', next:'n4'},
+    {t:'Cuenta que fue constancia lo que falló, no el método', tag:'n', next:'n4'},
+    {t:'Pregunta si esto es diferente a lo que ya probó', tag:'r', next:'REENCUADRE'}
+  ]},
+  n4:{block:"4 · Dolor", title:"Intensidad del dolor", say:"¿Cómo te está afectando esto del 1 al 10?", cont:'n5', options:[
+    {t:'Da una cifra alta (7-10)', tag:'n', next:'n5'},
+    {t:'Da una cifra media (4-6)', tag:'n', next:'n5'},
+    {t:'Minimiza el problema (1-3)', tag:'n', next:'n5'},
+    {t:'Pregunta si su caso tiene solución', tag:'r', next:'REENCUADRE'}
+  ]},
+  n5:{block:"4 · Dolor", title:"Dolor emocional y relaciones", say:"¿Cómo te afecta esto en tu día a día, en tu energía o en tus planes con otras personas?", cont:'n6', options:[
+    {t:'Cuenta impacto emocional o familiar claro', tag:'n', next:'n6'},
+    {t:'Le cuesta verbalizarlo, responde en general', tag:'n', next:'n6'},
+    {t:'Resta importancia al impacto emocional', tag:'n', next:'n6'},
+    {t:'Pregunta si esto podría ser algo más serio a nivel médico', tag:'r', next:'REENCUADRE'}
+  ]},
+  n6:{block:"5 · Por qué ahora", title:"El detonante", say:"¿Cuál es esa necesidad o dolor que hace que necesites comenzar YA a trabajar en la recuperación de tu cuerpo?", cont:'n7', options:[
+    {t:'Da un motivo claro y urgente', tag:'n', next:'n7'},
+    {t:'Motivo vago, hay que profundizar', tag:'n', next:'n6b'},
+    {t:'Dice que "no hay prisa, es solo curiosidad"', tag:'r', next:'REENCUADRE'},
+    {t:'Pregunta cuánto se tarda en notar resultados', tag:'r', next:'REENCUADRE'}
+  ]},
+  n6b:{block:"5 · Por qué ahora (profundizar)", title:"Las 3 áreas", say:"¿En cuál de estas tres áreas sientes que reside el problema: tu salud física, tu energía y calidad de vida, o tu confianza con tu propio cuerpo?", cont:'n7', options:[
+    {t:'Se identifica con salud física', tag:'n', next:'n7'},
+    {t:'Se identifica con energía / calidad de vida', tag:'n', next:'n7'},
+    {t:'Se identifica con confianza / autoestima', tag:'n', next:'n7'},
+    {t:'Duda si puede resolverlo por sí mismo', tag:'r', next:'REENCUADRE'}
+  ]},
+  n7:{block:"6 · Situación deseada", title:"La visión a 6 meses", say:"Imagínate que dentro de 6 meses me dices que unirte a Método Fénix Remoto fue la mejor decisión que pudiste tomar. ¿Qué tendría que haber pasado?", cont:'n8', options:[
+    {t:'Describe resultados físicos y emocionales con detalle', tag:'n', next:'n8'},
+    {t:'Da una respuesta breve o genérica', tag:'n', next:'n8'},
+    {t:'Se emociona al imaginar el resultado', tag:'n', next:'n8'},
+    {t:'Se muestra escéptico sobre lograrlo', tag:'n', next:'n8'}
+  ]},
+  n8:{block:"6 · Confianza", title:"¿Es posible para ti?", say:"¿Crees que esto es posible para ti?", cont:'n9', options:[
+    {t:'Dice que sí, con seguridad', tag:'n', next:'n9'},
+    {t:'Duda de sí mismo/a', tag:'r', next:'REENCUADRE'},
+    {t:'Dice que no lo sabe', tag:'r', next:'REENCUADRE'},
+    {t:'Duda pero termina diciendo que sí', tag:'n', next:'n9'}
+  ]},
+  n9:{block:"7 · Transición", title:"Anuncia el encaje", say:"Por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma. Mira [Nombre], en Método Fénix Remoto ayudamos a teletrabajadores que sienten que el sedentarismo les ha apagado el cuerpo a recuperar movilidad, fuerza funcional y energía estable. Nuestro enfoque se basa en dos pilares fundamentales. ¿Quieres saber cuáles son?", cont:'n10', options:[
+    {t:'Acepta y quiere que le expliques', tag:'n', next:'n10'},
+    {t:'Se muestra receptivo/a sin más', tag:'n', next:'n10'},
+    {t:'Pregunta primero cuánto cuesta', tag:'r', next:'REENCUADRE'},
+    {t:'Pregunta cuántas sesiones 1:1 incluye', tag:'r', next:'REENCUADRE'}
+  ]},
+  n10:{block:"8 · Pitch pilar 1", title:"Estructura Nutricional Adaptada", say:"¿Recuerdas que me dijiste que [Problema]? El primer pilar es la Estructura Nutricional Adaptada, basada en comida real y nutrición evolutiva. ¿Tiene sentido para ti?", cont:'n11', options:[
+    {t:'Dice que sí, le ve lógica', tag:'n', next:'n11'},
+    {t:'Compara con dietas que ya probó', tag:'n', next:'n11'},
+    {t:'Hace una pregunta sobre cómo funciona', tag:'r', next:'REENCUADRE'},
+    {t:'Reconoce que nunca lo había enfocado así', tag:'n', next:'n11'}
+  ]},
+  n11:{block:"8 · Pitch pilar 2", title:"Recuperación Física Progresiva", say:"¿Recuerdas que me dijiste que [Problema]? El segundo pilar es la Recuperación Física Progresiva: movilidad, control corporal y fuerza funcional en el orden correcto. ¿Le ves lógica?", cont:'n12', options:[
+    {t:'Dice que sí, le ve lógica', tag:'n', next:'n12'},
+    {t:'Pregunta si necesita comprar material o equipo', tag:'r', next:'REENCUADRE'},
+    {t:'Pregunta cuánto tiempo hay que dedicar', tag:'r', next:'REENCUADRE'},
+    {t:'Relaciona el ejercicio con su rutina de trabajo', tag:'n', next:'n12'}
+  ]},
+  n12:{block:"9 · Fases del programa", title:"Cómo se implementa", say:"¿Te parece si te muestro cómo vamos a implementarlo contigo, fase a fase?", cont:'n13', options:[
+    {t:'Quiere ver las fases', tag:'n', next:'n13'},
+    {t:'Pregunta cuánto dura todo el proceso', tag:'n', next:'n13'},
+    {t:'Se muestra impaciente por saber el precio', tag:'n', next:'n14'},
+    {t:'Pregunta si las fases se pueden ajustar a su ritmo', tag:'r', next:'REENCUADRE'}
+  ]},
+  n13:{block:"10 · Entrega y bonus", title:"Qué incluye el programa", say:"Es un programa llave en mano: diagnóstico, sistema nutricional, entrenamientos, protocolos de movilidad, correcciones técnicas, soporte diario y revisiones mensuales, más 891€ en bonus.", cont:'n14', options:[
+    {t:'Muestra interés claro en la entrega', tag:'n', next:'n14'},
+    {t:'Ya quiere saber el precio', tag:'n', next:'n14'},
+    {t:'Pregunta algo puntual sobre un elemento', tag:'r', next:'REENCUADRE'},
+    {t:'Confirma que le interesa toda la entrega', tag:'n', next:'n14'}
+  ]},
+  n14:{block:"11 · Inversión", title:"Da la cifra y cállate", say:"Para acceder al Programa completo durante 6 meses, la inversión es de 1.500 euros.", cont:'n15', options:[
+    {t:'Acepta sin objeción (8-10/10)', tag:'n', next:'n15'},
+    {t:'Objeción: "es caro / es mucho dinero"', tag:'o', next:'OBJ:caro'},
+    {t:'Objeción: "no tengo dinero"', tag:'o', next:'OBJ:dinero'},
+    {t:'Objeción: "me lo tengo que pensar"', tag:'o', next:'OBJ:pensar'}
+  ]},
+  n15:{block:"12–13 · Cierre", title:"Confirmar plan de pago", say:"¿Prefieres pago único o el plan de pago que acordamos?", cont:'n16', options:[
+    {t:'Elige pago único', tag:'n', next:'n16', accept:true},
+    {t:'Elige plan a plazos', tag:'n', next:'n16', accept:true},
+    {t:'Última duda antes de decidir', tag:'r', next:'REENCUADRE'},
+    {t:'Objeción: "¿tienes garantía?"', tag:'o', next:'OBJ:garantia'}
+  ]},
+  n16:{block:"Cierre final", title:"Onboarding y Escaneo Fénix", say:"En las próximas 24-48h vas a recibir acceso a la app, y vamos a programar tu Escaneo Fénix esta misma semana.", cont:'FIN', options:[
+    {t:'Confirma y agenda el Escaneo Fénix', tag:'n', next:'FIN'},
+    {t:'Pide un par de días para organizarse', tag:'n', next:'FIN'},
+    {t:'Pregunta cómo es la primera sesión', tag:'r', next:'REENCUADRE'},
+    {t:'Todo cerrado, sin más dudas', tag:'n', next:'FIN'}
+  ]}
+};
+
+let curNode = 'n1';
+let flowHistory = [];
+let pendingReturn = null; // node to return to after overlay resolves
+let leadAccepted = false;
+
+function renderNode(){
+  if(curNode==='FIN'){ renderFin(); return; }
+  const n = NODES[curNode];
+  document.getElementById('flow-progress').textContent = 'BLOQUE '+Object.keys(NODES).indexOf(curNode+'')+1+' de '+Object.keys(NODES).length;
+  document.getElementById('flow-block').textContent = n.block;
+  document.getElementById('flow-title').textContent = n.title;
+  document.getElementById('flow-say').innerHTML = '"'+withName(n.say)+'"' + ((curNode==='n14'||curNode==='n15') ? '<div class="callout" style="margin-top:10px;"><strong>Enlaces de pago — envía el que elija:</strong>'+payButtonsHtml()+'</div>' : '');
+  const optList = document.getElementById('opt-list');
+  optList.innerHTML = '';
+  n.options.forEach(o=>{
+    const b = document.createElement('button');
+    b.className = 'opt-btn';
+    const tagTxt = o.tag==='r' ? 'PREGUNTA' : (o.tag==='o' ? 'OBJECIÓN' : 'CONTINÚA');
+    b.innerHTML = '<span class="opt-tag '+o.tag+'">'+tagTxt+'</span><span>'+o.t+'</span>';
+    b.onclick = ()=> pickOption(o);
+    optList.appendChild(b);
+  });
+  renderHistory();
+  if(typeof updateCallNav==='function') updateCallNav();
+}
+function pickOption(o){
+  flowHistory.push({block:NODES[curNode].block, picked:o.t});
+  if(o.accept) leadAccepted = true;
+  if(o.next==='REENCUADRE'){ openReencuadre(); return; }
+  if(o.next.indexOf('OBJ:')===0){ openObjecion(o.next.split(':')[1]); return; }
+  curNode = o.next;
+  renderNode();
+}
+function renderHistory(){
+  const h = document.getElementById('flow-history');
+  if(!flowHistory.length){ h.innerHTML=''; return; }
+  h.innerHTML = '<div style="color:var(--ink-dim); margin-bottom:6px;">Recorrido de la llamada:</div>' +
+    flowHistory.map(x=>'<div class="hitem">✓ '+x.block+' — <em>'+x.picked+'</em></div>').join('');
+}
+function restartFlow(){
+  curNode='n1'; flowHistory=[]; leadAccepted=false;
+  document.getElementById('flow-wrap').querySelector('.fin-box')?.remove();
+  document.querySelectorAll('#flow-wrap > *').forEach(el=>{ if(el.id!=='panel-reencuadre' && el.id!=='panel-objecion' && el.id!=='panel-objbank') el.style.display=''; });
+  renderNode();
+}
+function renderFin(){
+  document.getElementById('flow-progress').textContent = 'LLAMADA COMPLETA';
+  document.getElementById('flow-block').textContent = '';
+  document.getElementById('flow-title').textContent = '';
+  if(leadAccepted){
+    document.getElementById('flow-say').innerHTML = '<div class="fin-box"><h3>✓ Lead cerrado</h3><p style="color:var(--ink-dim);">Te llevamos a "Cierre y pagos" para confirmar el plan, enviar el onboarding y registrar el resultado...</p></div>';
+    document.getElementById('opt-list').innerHTML = '';
+    renderHistory();
+    if(typeof updateCallNav==='function') updateCallNav();
+    setTimeout(()=> goTab('cierre'), 900);
+    return;
+  }
+  document.getElementById('flow-say').innerHTML = '<div class="fin-box"><h3>✓ Conversación completada</h3><p style="color:var(--ink-dim);">El lead no llegó a aceptar un plan de pago. Registra el resultado en la pestaña "Ficha a Word" y programa el seguimiento correspondiente.</p></div>';
+  document.getElementById('opt-list').innerHTML = '';
+  renderHistory();
+  if(typeof updateCallNav==='function') updateCallNav();
+}
+
+/* ---- Overlay: Reencuadre ---- */
+function openReencuadre(){
+  pendingReturn = NODES[curNode] ? NODES[curNode].cont : 'FIN';
+  const box = document.getElementById('reencuadre-opts');
+  box.innerHTML = '';
+  REFRAMES.forEach(r=>{
+    const b = document.createElement('button');
+    b.className='reframe-opt';
+    b.textContent = r.label;
+    b.onclick = ()=>{ document.getElementById('reencuadre-answer').innerHTML = '<div class="reframe-answer">"'+r.txt+'"</div>'; };
+    box.appendChild(b);
+  });
+  document.getElementById('reencuadre-answer').innerHTML='';
+  document.getElementById('panel-reencuadre').classList.add('on');
+}
+/* ---- Overlay: Objeción ---- */
+function openObjecion(id){
+  pendingReturn = NODES[curNode] ? NODES[curNode].cont : 'FIN';
+  const o = OBJ[id];
+  document.getElementById('objecion-content').innerHTML =
+    '<h4 style="color:var(--red); font-family:\'Cormorant Garamond\',serif; font-size:1.15rem;">'+o.q+'</h4>'+
+    '<p>'+o.a+'</p><div class="reframe-answer" style="border-left-color:var(--red);">"'+withName(o.say)+'"</div>'+
+    '<div class="send-row"><button class="send-btn wa" onclick="sendWA(\''+o.say.replace(/'/g,"\\'")+'\')">📱 WhatsApp</button>'+
+    '<button class="send-btn mail" onclick="sendMail(\'Método Fénix Remoto\',\''+o.say.replace(/'/g,"\\'")+'\')">✉️ Correo</button></div>';
+  document.getElementById('panel-objecion').classList.add('on');
+}
+function closeOverlay(kind){
+  document.getElementById('panel-'+kind).classList.remove('on');
+  curNode = pendingReturn || 'FIN';
+  renderNode();
+}
+/* ---- Banco completo de objeciones (acceso pasivo, no cambia de nodo) ---- */
+function openObjBank(){
+  const list = document.getElementById('objbank-list');
+  list.innerHTML = '';
+  Object.keys(OBJ).forEach(id=>{
+    const b = document.createElement('button');
+    b.className='reframe-opt';
+    b.textContent = OBJ[id].q;
+    b.onclick = ()=>{
+      const o = OBJ[id];
+      document.getElementById('objbank-detail').innerHTML =
+        '<p style="color:var(--ink-dim); margin-top:10px;">'+o.a+'</p><div class="reframe-answer" style="border-left-color:var(--red);">"'+withName(o.say)+'"</div>'+
+        '<div class="send-row"><button class="send-btn wa" onclick="sendWA(\''+o.say.replace(/'/g,"\\'")+'\')">📱 WhatsApp</button>'+
+        '<button class="send-btn mail" onclick="sendMail(\'Método Fénix Remoto\',\''+o.say.replace(/'/g,"\\'")+'\')">✉️ Correo</button></div>';
+    };
+    list.appendChild(b);
+  });
+  document.getElementById('objbank-detail').innerHTML='';
+  document.getElementById('panel-objbank').classList.add('on');
+}
+function closeObjBank(){
+  document.getElementById('panel-objbank').classList.remove('on');
+}
+
+/* ================= NAV FLOTANTE: preguntas anteriores/posteriores ================= */
+const NODE_ORDER = ['n1','n1b','n2','n3','n4','n5','n6','n6b','n7','n8','n9','n10','n11','n12','n13','n14','n15','n16'];
+function updateCallNav(){
+  const idx = NODE_ORDER.indexOf(curNode);
+  const prevBtn = document.getElementById('cn-prev'), nextBtn = document.getElementById('cn-next');
+  if(!prevBtn || !nextBtn) return;
+  if(idx===-1){
+    document.getElementById('cn-title').textContent = 'Llamada completa';
+    document.getElementById('cn-pos').textContent = '';
+    prevBtn.disabled = false; nextBtn.disabled = true;
+    return;
+  }
+  const n = NODES[curNode];
+  document.getElementById('cn-title').textContent = n.title;
+  document.getElementById('cn-pos').textContent = (idx+1)+' / '+NODE_ORDER.length+' · '+n.block;
+  prevBtn.disabled = idx<=0;
+  nextBtn.disabled = false;
+}
+function callNav(dir){
+  let idx = NODE_ORDER.indexOf(curNode);
+  if(idx===-1) idx = NODE_ORDER.length; // veníamos de FIN
+  idx = Math.max(0, Math.min(NODE_ORDER.length-1, idx+dir));
+  curNode = NODE_ORDER[idx];
+  goTab('llamada');
+  renderNode();
+}
+
+renderNode();
+
+/* ================= REENGANCHE ================= */
+const RMSGS = [
+  {scenario:"Se quedó justo antes de proponer la llamada", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Retomando lo que hablamos sobre tu situación... ¿sigues con ganas de darle solución o cambiaron las cosas?"},
+  {scenario:"Se propuso la llamada pero no llegó a agendar", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Habíamos quedado en ver tu caso con una videollamada de valoración y se quedó ahí. ¿Te sigue interesando que lo miremos con calma?"},
+  {scenario:"Se agendó pero no se presentó / canceló", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Vi que no pudimos coincidir en la llamada. ¿Buscamos otro hueco o prefieres que lo dejemos por ahora?"},
+  {scenario:"Pidió pensarlo y no volvió a escribir", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Te dejé espacio para pensarlo. ¿Cómo lo ves? Sin ningún compromiso, solo quiero saber si sigue teniendo sentido para ti."},
+  {scenario:"Se envió un recurso gratuito y no hubo respuesta", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Pudiste ver el recurso que te compartí? Cuando quieras me cuentas qué te pareció."},
+  {scenario:"Mensaje de cierre de ciclo (último intento)", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. No quiero insistir de más — si te sigue interesando recuperar tu movilidad y energía, aquí estoy. Si prefieres que lo dejemos por ahora, también me lo puedes decir sin problema."}
+];
+const rBox = document.getElementById('rmsg-list');
+function renderReenganche(){
+  rBox.innerHTML = '';
+  RMSGS.forEach((r,i)=>{
+    const card = document.createElement('div');
+    card.className='card';
+    card.style.marginTop='12px';
+    card.innerHTML = '<h4>'+(i+1)+'. '+r.scenario+'</h4>'+
+      '<div class="reframe-answer" style="margin-top:8px;">"'+withName(r.text)+'"</div>'+
+      '<div class="send-row"><button class="send-btn wa" onclick="sendWA(\''+r.text.replace(/'/g,"\\'")+'\')">📱 Enviar por WhatsApp</button>'+
+      '<button class="send-btn mail" onclick="sendMail(\'¿Seguimos?\',\''+r.text.replace(/'/g,"\\'")+'\')">✉️ Enviar por correo</button></div>';
+    rBox.appendChild(card);
+  });
+}
+renderReenganche();
+
+/* ================= CHECKLIST ================= */
+const CHECK_ITEMS = [
+  "Identifiqué el origen del lead (A/B/C) y usé el primer contacto correspondiente",
+  "Rellené la ficha del lead antes de empezar",
+  "Recorrí química, encuadre, descubrimiento, dolor, por qué ahora y situación deseada sin saltarme bloques obligatorios",
+  "Presenté los 2 pilares atados a las palabras exactas del cliente",
+  "Di el precio completo y me callé",
+  "Resolví objeciones aislando el problema real antes de negociar",
+  "No prometí curación, diagnóstico ni resultados garantizados",
+  "Envié el enlace de pago correcto según el plan acordado",
+  "Si cerró: envié el enlace de onboarding y agendé el Escaneo Fénix",
+  "Actualicé el estado del lead en Sequoia"
+];
+const checklistEl = document.getElementById('checklist');
+let checkedState = JSON.parse(localStorage.getItem('fenix_checklist') || '{}');
+CHECK_ITEMS.forEach((txt,i)=>{
+  const li = document.createElement('li');
+  li.id = 'chk-'+i;
+  if(checkedState[i]) li.classList.add('checked');
+  li.innerHTML = '<span class="chk-box">'+(checkedState[i]?'✓':'')+'</span>'+txt;
+  li.onclick = ()=>{
+    checkedState[i] = !checkedState[i];
+    localStorage.setItem('fenix_checklist', JSON.stringify(checkedState));
+    li.classList.toggle('checked');
+    li.querySelector('.chk-box').textContent = checkedState[i] ? '✓' : '';
+  };
+  checklistEl.appendChild(li);
+});
+
+/* ================= EXPORTAR FICHA A WORD (formato Sequoia) ================= */
+function exportWord(){
+  const estado = document.getElementById('r-estado').value;
+  const plan = document.getElementById('r-plan').value;
+  const notas = document.getElementById('r-notas').value;
+  const f = ficha;
+  const html = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+    <head><meta charset='utf-8'><title>Ficha Sequoia</title></head>
+    <body style="font-family:Calibri,Arial,sans-serif;">
+      <h2 style="color:#8E763A;">Ficha de Lead — Método Fénix Remoto</h2>
+      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+        <tr style="background:#111;"><td><b>Comercial</b></td><td>${f.comercial||''}</td></tr>
+        <tr><td><b>Nombre</b></td><td>${f.nombre||''}</td></tr>
+        <tr><td><b>Teléfono</b></td><td>${f.telefono||''}</td></tr>
+        <tr><td><b>Email</b></td><td>${f.email||''}</td></tr>
+        <tr><td><b>Origen</b></td><td>${({A:'A · Reenganche WhatsApp',B:'B · WhatsApp caliente',C:'C · Web'})[f.origen]||f.origen||''}</td></tr>
+        <tr><td><b>Estado</b></td><td>${estado}</td></tr>
+        <tr><td><b>Notas</b></td><td>${notas.replace(/\n/g,'<br>')}</td></tr>
+      </table>
+      <h3 style="color:#8E763A; margin-top:20px;">Datos adicionales de la llamada</h3>
+      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+        <tr><td><b>Edad / ocupación</b></td><td>${f.perfil||''}</td></tr>
+        <tr><td><b>Tiempo teletrabajando</b></td><td>${f.tiempo||''}</td></tr>
+        <tr><td><b>Problema principal</b></td><td>${f.problema||''}</td></tr>
+        <tr><td><b>Qué ha probado antes</b></td><td>${f.intentos||''}</td></tr>
+        <tr><td><b>Objetivo / deseo</b></td><td>${f.objetivo||''}</td></tr>
+        <tr><td><b>Detonante</b></td><td>${f.detonante||''}</td></tr>
+        <tr><td><b>Plan de pago</b></td><td>${plan}</td></tr>
+      </table>
+      <p style="margin-top:16px; font-size:11px; color:#888;">Generado desde la Guía de Ventas Interactiva · Método Fénix Remoto · Closer Search</p>
+    </body></html>`;
+  const blob = new Blob(['\ufeff', html], {type:'application/msword'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Ficha_'+(f.nombre||'lead').replace(/\s+/g,'_')+'_FenixRemoto.doc';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
