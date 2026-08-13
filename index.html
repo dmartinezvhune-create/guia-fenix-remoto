@@ -210,7 +210,7 @@
   </div>
   <div class="quickbar">
     <div class="qgroup">
-      <a class="qlink" href="https://youtu.be/YsvGYVgwJRI" target="_blank" rel="noopener">▶ Vídeo del taller</a>
+      <a class="qlink" href="https://youtu.be/QixaHl0MrkU" target="_blank" rel="noopener">▶ Vídeo del taller</a>
       <button class="qsend wa" onclick="sendWA(TALLER_MSG)" title="Enviar por WhatsApp">📱</button>
       <button class="qsend mail" onclick="sendMail('Método Fénix Remoto', TALLER_MSG)" title="Enviar por correo">✉️</button>
     </div>
@@ -281,7 +281,7 @@
         </select>
       </div>
       <div><label>Edad / ocupación</label><input type="text" id="f-perfil" placeholder="ej: 42 años, consultora"></div>
-      <div><label>Tiempo teletrabajando</label><input type="text" id="f-tiempo" placeholder="ej: 5 años"></div>
+      <div><label>Tiempo en trabajo sentado</label><input type="text" id="f-tiempo" placeholder="ej: 5 años, oficina o remoto"></div>
       <div class="full"><label>Problema principal</label><input type="text" id="f-problema" placeholder="ej: dolor lumbar al levantarse, cadera bloqueada"></div>
       <div class="full"><label>Qué ha probado antes</label><input type="text" id="f-intentos" placeholder="ej: fisio, dos gimnasios, yoga"></div>
       <div><label>Objetivo / deseo</label><input type="text" id="f-objetivo" placeholder="ej: volver a jugar con sus hijos sin dolor"></div>
@@ -323,7 +323,7 @@
       </div>
       <div class="card">
         <div class="pill">Origen C</div><h4>Web · vídeo de entrada</h4>
-        <p>Leads que se registran en la web tras ver el <a href="https://youtu.be/YsvGYVgwJRI" target="_blank" rel="noopener">vídeo del taller</a>. El primer mensaje debe conectar con lo que vieron.</p>
+        <p>Leads que se registran en la web tras ver el <a href="https://youtu.be/QixaHl0MrkU" target="_blank" rel="noopener">vídeo del taller</a>. El primer mensaje debe conectar con lo que vieron.</p>
         <div class="pill" style="margin-top:10px;">Paso 1 · Mensaje inicial</div>
         <div class="reframe-answer" style="margin-top:4px;" id="prev-origenc-1"></div>
         <div class="send-row"><button class="send-btn wa" onclick="sendWA(ORIGENC_MSG)">📱 WhatsApp</button><button class="send-btn mail" onclick="sendMail('Método Fénix Remoto', ORIGENC_MSG)">✉️ Correo</button></div>
@@ -380,7 +380,7 @@
     <h3 class="sub">Los 2 pilares</h3>
     <div class="grid-2">
       <div class="card"><div class="pill">Pilar 1</div><h4>Estructura Nutricional Adaptada</h4><p>Comida real, nutrición evolutiva. Estabiliza energía y saciedad sin contar calorías ni dietas restrictivas.</p></div>
-      <div class="card"><div class="pill">Pilar 2</div><h4>Recuperación Física Progresiva</h4><p>Movilidad Joint by Joint → control corporal / barefoot → fuerza funcional. 30–40 min, 3x/semana, desde casa.</p></div>
+      <div class="card"><div class="pill">Pilar 2</div><h4>Recuperación Física Progresiva</h4><p>Movilidad Joint by Joint → control corporal / barefoot → fuerza funcional. 3 sesiones semanales de 50-60 minutos, desde casa.</p></div>
     </div>
     <h3 class="sub">Las 3 fases (6 meses)</h3>
     <table>
@@ -388,14 +388,13 @@
       <tbody>
         <tr><td class="label">1. Diagnóstico — Mes 1</td><td>Escaneo Fénix, app, Reset Joint by Joint, Liberación Antisilla, nutrición desde el día 1</td><td>Menos tensión cervical, menos rigidez matutina, energía más estable</td></tr>
         <tr><td class="label">2. Reconstrucción — Meses 2–4</td><td>Integración mensual, Fuerza Funcional Remota, corrección por vídeo, Radar de Consistencia</td><td>Sin dolor lumbar, movilidad de cadera recuperada, fuerza funcional real</td></tr>
-        <tr><td class="label">3. Consolidación — Meses 5–6</td><td>Ajustes mensuales, guías de teletrabajo saludable, protocolos a largo plazo</td><td>Movilidad, fuerza y energía sostenidas + herramientas de por vida</td></tr>
+        <tr><td class="label">3. Consolidación — Meses 5–6</td><td>Ajustes mensuales, guías de trabajo saludable (oficina o remoto), protocolos a largo plazo</td><td>Movilidad, fuerza y energía sostenidas + herramientas de por vida</td></tr>
       </tbody>
     </table>
-    <h3 class="sub">Bonus (valor total 891&nbsp;€)</h3>
-    <div class="grid-3">
+    <h3 class="sub">Bonus (valor total 694&nbsp;€)</h3>
+    <div class="grid-2">
       <div class="card"><div class="pill">397&nbsp;€</div><h4>Diagnóstico Nutricional Evolutivo</h4><p>Estudio personalizado de alimentación, hambre, ansiedad y energía.</p></div>
       <div class="card"><div class="pill">297&nbsp;€</div><h4>Corrección Funcional Fénix</h4><p>Revisión técnica por vídeo en profundidad para prevenir lesiones.</p></div>
-      <div class="card"><div class="pill">197&nbsp;€</div><h4>Oficina Antisedentaria</h4><p>Sistema para adaptar el espacio de trabajo y reducir el impacto físico.</p></div>
     </div>
   </section>
 
@@ -662,17 +661,17 @@ function sendWA(text){ window.open('https://wa.me/?text=' + encodeURIComponent(w
 function sendMail(subject, text){ window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(withName(text)); }
 function onboardMsg(){ return "Hola [Nombre] 🎉 ¡Bienvenido/a a Método Fénix Remoto! Aquí tienes tu acceso de bienvenida para arrancar: https://fenixremoto.com/bienvenida-fenix"; }
 
-const TALLER_MSG = "Hola [Nombre], te hago llegar este recurso porque creo que puede ayudarte con lo que me has contado. Cuando puedas verlo, me cuentas qué te ha parecido: https://youtu.be/YsvGYVgwJRI";
-const PREP_MSG = "Hola [Nombre], antes de la llamada es importante que veas este vídeo. Así podrás aprovechar mucho mejor la valoración: https://fenixremoto.com/video-preparacion-llamada";
-const ORIGENB_MSG = "Hola [Nombre] 😊 ¿Qué tal? Soy [Comercial], del equipo de Método Fénix Remoto. He visto que te gustaría conocer un poco más sobre el método. Antes de contarte cómo trabajamos, ¿te importa si te hago un par de preguntas rápidas? Así entiendo un poco mejor tu situación y te puedo orientar de la mejor forma.";
-const ORIGENC_MSG = "Hola [Nombre] 😊 Soy [Comercial], del equipo de Método Fénix Remoto. He visto que te registraste en el taller gratuito \"Cómo reconstruir tu cuerpo en 90 días aunque lleves años atrapado en la silla\". ¿Qué fue lo que más te llamó la atención del taller o qué te gustaría conseguir?";
-const ORIGENB_STEP2 = "Genial. Cuéntame, ¿cuál es la principal molestia o limitación física que estás teniendo ahora mismo?";
-const ORIGENC_STEP2 = "Cuéntame, ¿qué es lo que más te limita ahora mismo?";
-const FEEDBACK_MSG = "Por lo que me cuentas — [Problema] —, entiendo que quieras encontrar una forma de solucionarlo.";
-const TRANSICION_MSG = "Por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma y valorar si podemos ayudarte de una forma adaptada a tu situación.";
-const PROPUESTA_MSG = "¿Te parece que organicemos una videollamada de valoración para ver tu caso con más detalle?";
-const DIAHORA_MSG = "¿Te viene bien el [Dia] a las [Hora] para la videollamada?";
-const RECORDATORIO_MSG = "Hola [Nombre], te recuerdo tu videollamada de valoración: [Dia] a las [Hora]. Aquí tienes el enlace de conexión: [Enlace]";
+const TALLER_MSG = "oye te dejo este vídeo, xq creo q te puede venir bien con lo q me has contado! échale un ojo cuando puedas y me dices qué te ha parecido: https://youtu.be/QixaHl0MrkU";
+const PREP_MSG = "antes de la llamada mírate este vídeo, te va a venir genial para la valoración: https://fenixremoto.com/video-preparacion-llamada";
+const ORIGENB_MSG = "Hola [Nombre]! soy [Comercial] de Fénix Remoto 😊 vi que te interesaba saber más del método... te puedo hacer un par de preguntas rápidas para entender mejor tu caso?";
+const ORIGENC_MSG = "Hola [Nombre], soy [Comercial] de Fénix Remoto! vi que te apuntaste al taller de \"cómo reconstruir tu cuerpo en 90 días\"... qué te pareció? o qué te gustaría conseguir tú?";
+const ORIGENB_STEP2 = "vale genial! cuéntame, qué es lo que más te está molestando ahora mismo?";
+const ORIGENC_STEP2 = "cuéntame un poco, qué es lo que más te limita ahora mismo?";
+const FEEDBACK_MSG = "vale [Nombre] por lo que me cuentas — [Problema] — te entiendo, tiene sentido q quieras solucionarlo ya, xq eso no mejora solo";
+const TRANSICION_MSG = "mira, por todo lo que me cuentas creo q sí podríamos ayudarte, solo tendría q verlo con más calma";
+const PROPUESTA_MSG = "te parece si montamos una videollamada para verlo con detalle?";
+const DIAHORA_MSG = "te viene bien el [Dia] a las [Hora]?";
+const RECORDATORIO_MSG = "hola [Nombre]! te recuerdo lo de tu llamada... [Dia] a las [Hora], aquí el link: [Enlace]";
 renderLeadsMessages();
 
 const PAY_LINKS = {
@@ -695,8 +694,8 @@ const OBJ = {
   garantia:{q:'"¿Tienes garantía?"', a:"Preguntar por garantía de devolución suele señalar falta de compromiso. La garantía real es el acompañamiento personal si cumple su parte.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Si tú cumples tu parte, yo voy a trabajar codo a codo contigo hasta que recuperes tu cuerpo."},
   pareja:{q:'"Necesito hablarlo con mi pareja"', a:"Propón una llamada corta de 15–20 min con ambos, o pregunta qué necesitaría para explicárselo bien. Fija día y hora de seguimiento.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Por qué no hacemos una llamada rápida de 15-20 minutos los tres juntos?"},
   lesion:{q:'"Tengo miedo de lesionarme"', a:"El primer mes no hay fuerza pesada ni HIIT, solo movilidad y control corporal partiendo del nivel real, con corrección técnica por vídeo.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Solo cuando tu cuerpo está preparado, entramos en fuerza funcional progresiva."},
-  tiempo:{q:'"No tengo tiempo para entrenar"', a:"Son 30–40 min, 3x/semana, desde casa. Compáralo con el tiempo que ya invierte gestionando dolor y cansancio.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Cuántas horas a la semana inviertes ahora gestionando el dolor o el cansancio?"},
-  probado_todo:{q:'"Ya he probado de todo y no ha funcionado"', a:"Pregunta qué probó exactamente y si estaba diseñado para revertir años de teletrabajo en el orden correcto. La respuesta suele ser que no.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. No has fallado tú. Han fallado los métodos porque ninguno estaba diseñado para tu punto de partida real."}
+  tiempo:{q:'"No tengo tiempo para entrenar"', a:"Son 3 sesiones semanales de 50-60 min, desde casa. Compáralo con el tiempo que ya invierte gestionando dolor y cansancio.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Cuántas horas a la semana inviertes ahora gestionando el dolor o el cansancio?"},
+  probado_todo:{q:'"Ya he probado de todo y no ha funcionado"', a:"Pregunta qué probó exactamente y si estaba diseñado para revertir años de trabajo sentado (oficina o remoto) en el orden correcto. La respuesta suele ser que no.", say:"[Nombre], soy [Comercial], del equipo de Método Fénix Remoto. No has fallado tú. Han fallado los métodos porque ninguno estaba diseñado para tu punto de partida real."}
 };
 
 /* ================= REENCUADRES (banco fijo, selección manual) ================= */
@@ -721,7 +720,7 @@ const NODES = {
     {t:'Pregunta si al final le vas a intentar vender algo sí o sí', tag:'r', next:'REENCUADRE'},
     {t:'Se muestra impaciente, quiere ir directo al grano', tag:'n', next:'n2'}
   ]},
-  n2:{block:"3 · Descubrimiento", title:"Perfil y contexto", say:"¿Cuánto tiempo llevas teletrabajando y cuántas horas al día pasas sentado/a?", cont:'n3', options:[
+  n2:{block:"3 · Descubrimiento", title:"Perfil y contexto", say:"¿Cuánto tiempo llevas con un trabajo sentado (oficina o remoto) y cuántas horas al día pasas así?", cont:'n3', options:[
     {t:'Lleva años y muchas horas sentado', tag:'n', next:'n3'},
     {t:'Es reciente pero ya nota molestias', tag:'n', next:'n3'},
     {t:'Menciona más de una molestia física a la vez', tag:'n', next:'n3'},
@@ -769,7 +768,7 @@ const NODES = {
     {t:'Dice que no lo sabe', tag:'r', next:'REENCUADRE'},
     {t:'Duda pero termina diciendo que sí', tag:'n', next:'n9'}
   ]},
-  n9:{block:"7 · Transición", title:"Anuncia el encaje", say:"Por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma. Mira [Nombre], en Método Fénix Remoto ayudamos a teletrabajadores que sienten que el sedentarismo les ha apagado el cuerpo a recuperar movilidad, fuerza funcional y energía estable. Nuestro enfoque se basa en dos pilares fundamentales. ¿Quieres saber cuáles son?", cont:'n10', options:[
+  n9:{block:"7 · Transición", title:"Anuncia el encaje", say:"Por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma. Mira [Nombre], en Método Fénix Remoto ayudamos a personas con trabajo sedentario, de oficina o en remoto, que sienten que eso les ha apagado el cuerpo a recuperar movilidad, fuerza funcional y energía estable. Nuestro enfoque se basa en dos pilares fundamentales. ¿Quieres saber cuáles son?", cont:'n10', options:[
     {t:'Acepta y quiere que le expliques', tag:'n', next:'n10'},
     {t:'Se muestra receptivo/a sin más', tag:'n', next:'n10'},
     {t:'Pregunta primero cuánto cuesta', tag:'r', next:'REENCUADRE'},
@@ -793,7 +792,7 @@ const NODES = {
     {t:'Se muestra impaciente por saber el precio', tag:'n', next:'n14'},
     {t:'Pregunta si las fases se pueden ajustar a su ritmo', tag:'r', next:'REENCUADRE'}
   ]},
-  n13:{block:"10 · Entrega y bonus", title:"Qué incluye el programa", say:"Es un programa llave en mano: diagnóstico, sistema nutricional, entrenamientos, protocolos de movilidad, correcciones técnicas, soporte diario y revisiones mensuales, más 891€ en bonus.", cont:'n14', options:[
+  n13:{block:"10 · Entrega y bonus", title:"Qué incluye el programa", say:"Es un programa llave en mano: diagnóstico, sistema nutricional, entrenamientos, protocolos de movilidad, correcciones técnicas, soporte diario y revisiones mensuales, más 694€ en bonus.", cont:'n14', options:[
     {t:'Muestra interés claro en la entrega', tag:'n', next:'n14'},
     {t:'Ya quiere saber el precio', tag:'n', next:'n14'},
     {t:'Pregunta algo puntual sobre un elemento', tag:'r', next:'REENCUADRE'},
@@ -968,12 +967,12 @@ renderNode();
 
 /* ================= REENGANCHE ================= */
 const RMSGS = [
-  {scenario:"Se quedó justo antes de proponer la llamada", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Retomando lo que hablamos sobre tu situación... ¿sigues con ganas de darle solución o cambiaron las cosas?"},
-  {scenario:"Se propuso la llamada pero no llegó a agendar", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Habíamos quedado en ver tu caso con una videollamada de valoración y se quedó ahí. ¿Te sigue interesando que lo miremos con calma?"},
-  {scenario:"Se agendó pero no se presentó / canceló", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Vi que no pudimos coincidir en la llamada. ¿Buscamos otro hueco o prefieres que lo dejemos por ahora?"},
-  {scenario:"Pidió pensarlo y no volvió a escribir", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. Te dejé espacio para pensarlo. ¿Cómo lo ves? Sin ningún compromiso, solo quiero saber si sigue teniendo sentido para ti."},
-  {scenario:"Se envió un recurso gratuito y no hubo respuesta", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. ¿Pudiste ver el recurso que te compartí? Cuando quieras me cuentas qué te pareció."},
-  {scenario:"Mensaje de cierre de ciclo (último intento)", text:"Hola [Nombre], soy [Comercial], del equipo de Método Fénix Remoto. No quiero insistir de más — si te sigue interesando recuperar tu movilidad y energía, aquí estoy. Si prefieres que lo dejemos por ahora, también me lo puedes decir sin problema."}
+  {scenario:"Se quedó justo antes de proponer la llamada", text:"hola [Nombre]! oye retomando lo de tu situación... sigues con ganas de solucionarlo o han cambiado las cosas?"},
+  {scenario:"Se propuso la llamada pero no llegó a agendar", text:"[Nombre] habíamos quedado en hacer la videollamada y se quedó ahí jaja te sigue interesando que lo veamos?"},
+  {scenario:"Se agendó pero no se presentó / canceló", text:"hola [Nombre], vi que al final no coincidimos en la llamada! buscamos otro hueco o lo dejamos por ahora?"},
+  {scenario:"Pidió pensarlo y no volvió a escribir", text:"[Nombre] te dejé tiempo para pensarlo, cómo lo ves? sin compromiso ninguno, solo quiero saber si te sigue interesando"},
+  {scenario:"Se envió un recurso gratuito y no hubo respuesta", text:"hola! pudiste ver el recurso que te pasé? cuando puedas me cuentas qué te pareció"},
+  {scenario:"Mensaje de cierre de ciclo (último intento)", text:"[Nombre] no quiero ser pesado, xq sé q a veces insistir cansa! si te sigue interesando aquí ando, y si no pues no pasa nada, tú me dices"}
 ];
 const rBox = document.getElementById('rmsg-list');
 function renderReenganche(){
@@ -1043,7 +1042,7 @@ function exportWord(){
       <h3 style="color:#8E763A; margin-top:20px;">Datos adicionales de la llamada</h3>
       <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
         <tr><td><b>Edad / ocupación</b></td><td>${f.perfil||''}</td></tr>
-        <tr><td><b>Tiempo teletrabajando</b></td><td>${f.tiempo||''}</td></tr>
+        <tr><td><b>Tiempo en trabajo sentado</b></td><td>${f.tiempo||''}</td></tr>
         <tr><td><b>Problema principal</b></td><td>${f.problema||''}</td></tr>
         <tr><td><b>Qué ha probado antes</b></td><td>${f.intentos||''}</td></tr>
         <tr><td><b>Objetivo / deseo</b></td><td>${f.objetivo||''}</td></tr>
