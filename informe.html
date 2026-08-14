@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método Fénix Remoto — Informe Operativo · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 30px 48px;
+  }
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.2rem; margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.75rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+  .onboarding-line{
+    margin-top:16px; padding-top:16px; border-top:1px solid var(--line);
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:.88rem; color:var(--ink-dim);
+  }
+  .onboarding-line a{color:var(--gold);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="sidebar">
+    <div class="brandmark">
+      <svg viewBox="0 0 100 100" fill="none">
+        <polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/>
+        <polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/>
+        <path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">CLOSER<span class="search"> SEARCH</span></div>
+      </div>
+    </div>
+    <div class="brand-tagline">Selección de talento de cierre</div>
+
+    <div class="nav-group-label">El producto</div>
+    <a href="#resumen">Resumen ejecutivo</a>
+    <a href="#avatar">Avatar del cliente</a>
+    <a href="#dolores">Dolores, deseos y miedos</a>
+    <a href="#oferta">Oferta y pilares</a>
+    <a href="#fases">Fases del programa (6 meses)</a>
+    <a href="#incluye">Qué incluye + bonus</a>
+
+    <div class="nav-group-label">Venta</div>
+    <a href="#embudo">Embudo completo</a>
+    <a href="#script">Estructura de la llamada</a>
+    <a href="#objeciones">Manejo de objeciones</a>
+    <a href="#limites">Límites y qué no prometer</a>
+
+    <div class="nav-group-label">Operativa</div>
+    <a href="#inversion">Inversión y enlaces de pago</a>
+    <a href="#proceso-closer">Procedimiento del Closer</a>
+
+    <div class="quicklinks">
+      <a href="#inversion">Enlaces de pago Stripe</a>
+      <a href="#inversion">Onboarding</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="topbar">
+      <span><strong>Programa</strong> Método Fénix Remoto</span>
+      <span class="divider"></span>
+      <span><strong>Duración</strong> 6 meses</span>
+      <span class="divider"></span>
+      <span><strong>Inversión</strong> 1.500&nbsp;€ IVA incl.</span>
+      <span class="divider"></span>
+      <span><strong>Formato</strong> Cierre en videollamada de valoración</span>
+    </div>
+
+    <header class="hero">
+      <div class="eyebrow">
+        <svg width="16" height="16" viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" fill="#C9A84C"/><path d="M33 50 L45 62 L69 36" stroke="#060606" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Informe operativo · Closer Search · Equipo de Closers
+      </div>
+      <h1>Cómo funciona el infoproducto Método Fénix Remoto</h1>
+      <p class="lede">Este documento reúne el avatar de cliente, la oferta, la estructura de venta y los datos operativos (precio, enlaces de pago y onboarding) que necesitas para llevar una llamada de principio a fin con criterio propio, no solo leyendo un guion.</p>
+      <div class="promise">"Recupera un cuerpo fuerte, móvil y con energía aunque lleves años trabajando sentado."</div>
+    </header>
+
+    <section id="resumen">
+      <div class="section-tag">01 · Contexto</div>
+      <h2>Resumen ejecutivo</h2>
+      <p>Método Fénix Remoto es un <strong style="color:var(--ink);">acompañamiento premium de 6 meses</strong> (1.500&nbsp;€) dirigido a personas de 30–50 años con trabajo sedentario (oficina o remoto) que sienten que años de silla y pantalla les han deteriorado el cuerpo: dolor lumbar, tensión cervical, rigidez de cadera, poca energía y pérdida de movilidad. No es un programa de fitness genérico ni busca convertir a nadie en atleta: reconstruye el cuerpo <em>en el orden correcto</em> — movilidad primero, control corporal después, fuerza funcional al final — combinado con nutrición evolutiva.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill">Pilar 1</div>
+          <h4>Estructura Nutricional Adaptada</h4>
+          <p>Comida real, nutrición evolutiva. Estabiliza energía y saciedad sin contar calorías ni dietas restrictivas.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Pilar 2</div>
+          <h4>Recuperación Física Progresiva</h4>
+          <p>Movilidad Joint by Joint → control corporal / barefoot → fuerza funcional. 3 sesiones semanales de 50 a 60 minutos, desde casa.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Diferencial</div>
+          <h4>Punto de partida real</h4>
+          <p>No asume una base física que el cliente no tiene. Por eso no lesiona y por eso los métodos anteriores fallaron.</p>
+        </div>
+      </div>
+      <div class="callout"><strong>Idea clave para la llamada:</strong> el cliente no ha fallado él; han fallado los métodos que probó porque ninguno estaba diseñado para su punto de partida real ni para su realidad de trabajo sedentario.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="avatar">
+      <div class="section-tag">02 · Cliente ideal</div>
+      <h2>Avatar del cliente</h2>
+      <p>Antes de la llamada, ten presente contra quién estás hablando: alguien analítico que necesita entender <em>por qué</em> funciona el método, no solo que funciona.</p>
+      <table>
+        <thead><tr><th>Variable</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Edad</td><td>30–50 años, hombres y mujeres</td></tr>
+          <tr><td class="label">Ocupación</td><td>Teletrabajadores: autónomos, empleados remotos, consultores, directivos, perfiles digitales</td></tr>
+          <tr><td class="label">Ingresos</td><td>Medios a medios-altos; dispuestos a invertir en una solución especializada</td></tr>
+          <tr><td class="label">Geografía</td><td>España y países hispanohablantes</td></tr>
+          <tr><td class="label">Motivación principal</td><td>Recuperar movilidad, energía y capacidad física tras años trabajando sentado</td></tr>
+          <tr><td class="label">Estilo de decisión</td><td>Analítico — necesita entender el "por qué" del método antes de comprometerse</td></tr>
+          <tr><td class="label">Disponibilidad</td><td>Limitada; exige soluciones que encajen en una agenda laboral exigente</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="dolores">
+      <div class="section-tag">03 · Psicografía</div>
+      <h2>Dolores, deseos, sueño oculto y miedo</h2>
+      <p>Estos son los mismos ejes que recorre la fase de "Dolor" y "Situación deseada" de la llamada. Úsalos para reconocer lo que el cliente te está diciendo con otras palabras.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Frustraciones frecuentes</div>
+          <p>Dolor lumbar al despertar · tensión cervical y de trapecios · rigidez de cadera · sensación de cuerpo "oxidado" · cansancio sin esfuerzo · mala postura · sentir que cada año está peor · soluciones probadas que no encajaron con su realidad.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Deseos profundos</div>
+          <p>Levantarse sin dolor ni rigidez · trabajar sin molestias · recuperar energía y claridad mental · moverse con agilidad · volver a sentirse fuerte y funcional · recuperar el control sobre su salud.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Sueño oculto</div>
+          <p>Volver a sentirse como antes de que el sedentarismo del trabajo empezara a pasar factura a su cuerpo: despertar con energía, moverse sin dolor, tener un cuerpo que le acompañe en vez de recordarle cada día las consecuencias de tantas horas sentado.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Miedo principal</div>
+          <p>Que el deterioro sea progresivo e irreversible: que el dolor, la rigidez y la pérdida de movilidad se conviertan en algo permanente si no actúa ahora.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="oferta">
+      <div class="section-tag">04 · Producto</div>
+      <h2>La oferta y los 2 pilares</h2>
+      <p>La "Nueva Oportunidad" que se presenta en la llamada: no es entrenar más ni comer menos, es <strong style="color:var(--ink);">reconstruir un cuerpo que ha pasado años adaptándose a la silla, la pantalla y la falta de movimiento</strong>, en el orden correcto y de forma compatible con el trabajo sedentario (oficina o remoto).</p>
+      <table>
+        <thead><tr><th>Pilar</th><th>Qué es</th><th>Qué resuelve</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Estructura Nutricional Adaptada</td><td>Sistema basado en comida real, biología evolutiva y saciedad, adaptado a la rutina de quien trabaja sentado</td><td>Fatiga, energía inestable, dependencia de dietas restrictivas</td></tr>
+          <tr><td class="label">Recuperación Física Progresiva</td><td>Movilidad (Joint by Joint) → control corporal / barefoot → fuerza funcional</td><td>Rigidez, molestias posturales, pérdida de movilidad, miedo a lesionarse</td></tr>
+        </tbody>
+      </table>
+      <h3>Por qué es diferente</h3>
+      <p>La mayoría de programas de fitness asumen una base física o disponibilidad de tiempo que este cliente no tiene. Método Fénix Remoto empieza literalmente donde está la persona — dolor lumbar, cadera bloqueada, baja energía — y solo después de reconstruir movimiento, energía y confianza, mejora la capacidad física y consolida hábitos.</p>
+    </section>
+
+    <section id="fases">
+      <div class="section-tag">05 · Programa</div>
+      <h2>Las 3 fases del acompañamiento (6 meses)</h2>
+      <p>Explica esta línea temporal en la llamada cuando el cliente ya ha validado que necesita lo que ofreces — es el "cómo lo vamos a implementar contigo".</p>
+
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Diagnóstico y activación — Mes 1</h4>
+          <p>Escaneo Fénix (sesión 1:1 inicial), acceso inmediato a la app, Reset Joint by Joint + Liberación Antisilla, sistema nutricional completo desde el día 1.</p>
+          <span class="result">Resultado esperado: menos tensión cervical, menos rigidez matutina, energía más estable</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Reconstrucción física progresiva — Meses 2–4</h4>
+          <p>Sesión 1:1 mensual (Integración Fénix Remoto), Fuerza Funcional Remota (3x/semana), corrección técnica por vídeo, Radar de Consistencia (WhatsApp diario).</p>
+          <span class="result">Resultado esperado: sin dolor lumbar al levantarse, movilidad de cadera/dorsal recuperada, fuerza funcional real</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Consolidación y autonomía — Meses 5–6</h4>
+          <p>Sesiones de ajuste mensual, guías de trabajo saludable (oficina o remoto), protocolos de recuperación y energía a largo plazo.</p>
+          <span class="result">Resultado esperado: movilidad, fuerza y energía sostenidas + herramientas para mantenerlo de por vida</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="incluye">
+      <div class="section-tag">06 · Entrega</div>
+      <h2>Qué incluye el programa + bonus</h2>
+      <table>
+        <thead><tr><th>Elemento</th><th>Formato</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Escaneo Fénix</td><td>Sesión 1:1</td><td>Diagnóstico completo inicial: movilidad, postura, energía, hábitos, dolores, objetivos</td></tr>
+          <tr><td class="label">Nutrición Evolutiva Fénix</td><td>App + contenido</td><td>Sistema nutricional práctico basado en comida real, sin contar calorías obsesivamente</td></tr>
+          <tr><td class="label">Reset Joint by Joint</td><td>Protocolos guiados en app</td><td>Rutinas semanales de movilidad articular y postura</td></tr>
+          <tr><td class="label">Fuerza Funcional Remota</td><td>Entrenamiento personalizado</td><td>3 entrenamientos/semana adaptados al nivel real, desde casa</td></tr>
+          <tr><td class="label">Liberación Antisilla</td><td>Protocolos específicos</td><td>Descarga de cuello, espalda, cadera y fatiga acumulada por el trabajo sedentario</td></tr>
+          <tr><td class="label">Radar de Consistencia</td><td>Soporte diario WhatsApp</td><td>Seguimiento diario para reforzar adherencia y evitar recaídas</td></tr>
+          <tr><td class="label">Integración Fénix Remoto</td><td>Sesión 1:1 mensual (x6)</td><td>Ajuste de entrenamiento, nutrición y hábitos según evolución</td></tr>
+          <tr><td class="label">Correcciones técnicas por vídeo</td><td>Feedback personalizado</td><td>El cliente envía vídeos de ejecución y recibe corrección</td></tr>
+        </tbody>
+      </table>
+      <h3>Bonus (valor total 694&nbsp;€)</h3>
+      <div class="grid-2">
+        <div class="card"><div class="pill">397&nbsp;€</div><h4>Diagnóstico Nutricional Evolutivo</h4><p>Estudio personalizado de alimentación, hambre, ansiedad y energía.</p></div>
+        <div class="card"><div class="pill">297&nbsp;€</div><h4>Corrección Funcional Fénix</h4><p>Revisión técnica por vídeo en profundidad para prevenir lesiones.</p></div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="embudo">
+      <div class="section-tag">07 · Funnel</div>
+      <h2>El embudo completo: de Meta Ads a la venta</h2>
+      <p>Un closer no entra en la llamada desde cero: el setter ya ha cualificado al lead. Conocer el recorrido previo te permite continuar la conversación en el punto exacto donde la dejó el setter, sin repetir preguntas.</p>
+      <div class="phase">
+        <div class="num">1</div>
+        <div class="phase-body"><h4>Meta Ads → Taller</h4><p>El anuncio lleva al <a href="https://youtu.be/QixaHl0MrkU" target="_blank" rel="noopener">taller "Cómo reconstruir tu cuerpo en 90 días aunque lleves años atrapado en la silla"</a>. El lead entra en el CRM Sequoia.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num">2</div>
+        <div class="phase-body"><h4>Setter por WhatsApp</h4><p>Descubre problema, impacto e intentos previos sin interrogar. Con al menos 3 de 4 bloques (problema, impacto, intentos, objetivo), da feedback y propone videollamada de valoración.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num">3</div>
+        <div class="phase-body"><h4>Confirmación + vídeo de preparación</h4><p>Se coordina la cita (fuera de este documento) y se envía el vídeo de preparación antes de la llamada.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body"><h4>Videollamada del closer</h4><p>Aquí entras tú: validas encaje, profundizas solo donde falte información, conectas el método con el problema real y presentas la inversión únicamente cuando hay encaje confirmado.</p></div>
+      </div>
+      <div class="callout"><strong>Regla de oro heredada del setter:</strong> no repitas el descubrimiento desde cero. Lee el historial de Sequoia antes de entrar en la llamada.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="script">
+      <div class="section-tag">08 · Llamada de venta</div>
+      <h2>Estructura de la llamada (13 bloques)</h2>
+      <p>Resumen operativo del guion completo. Los bloques marcados <span class="pill" style="margin:0;">obligatorio</span> no admiten improvisación.</p>
+
+      <details class="acc" open>
+        <summary>1–2 · Química y encuadre</summary>
+        <div class="acc-body">
+          <p>Rompe el hielo, pregunta desde dónde llama, y explica cómo va a ir la llamada: primero situación actual, luego a dónde quiere llegar, y si encaja le muestras el paso a paso e inversión — si no encaja, se lo dices sin problema.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>3 · Descubrimiento y derribar puentes</summary>
+        <div class="acc-body">
+          <p>3–4 preguntas cortas de perfil (edad, tiempo en trabajo sentado, horas sentado, desde cuándo las molestias). Después indaga qué ha probado antes (gimnasio, fisio, yoga, rutinas online) y por qué no le funcionó, para conectar cada respuesta con el pilar correspondiente (nutrición o recuperación física).</p>
+          <p>Cierra el bloque con: <span class="say">"¿Te he dado más claridad sobre lo que necesitas y lo que no necesitas?"</span></p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>4 · Dolor</summary>
+        <div class="acc-body">
+          <p>Baja el tono, empatiza. Pregunta estrella: <span class="say">"¿Cómo te está afectando esto del 1 al 10?"</span> Explora dolor físico, emocional, en relaciones y sobre el futuro.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>5 · Por qué ahora / costo</summary>
+        <div class="acc-body">
+          <p>Pregunta obligatoria: <span class="say">"¿Cuál es esa necesidad o dolor que hace que necesites comenzar YA a trabajar en la recuperación de tu cuerpo?"</span> Si la respuesta es superficial, profundiza en las 3 áreas: salud física, energía/calidad de vida, confianza con su cuerpo.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>6 · Situación deseada</summary>
+        <div class="acc-body">
+          <p>Sube el tono. Pregunta ancla: <span class="say">"Imagínate que dentro de 6 meses me dices que unirte a Método Fénix Remoto fue la mejor decisión que pudiste tomar. ¿Qué tendría que haber pasado?"</span> Recorre resultados físicos, emocionales, de relaciones y de confianza. Cierra con la pregunta de confianza: <span class="say">"¿Crees que esto es posible para ti?"</span> — la respuesta debe ser sí.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>7 · Transición</summary>
+        <div class="acc-body">
+          <p>Anuncia que el perfil encaja y que le vas a presentar cómo funciona el programa: si le encaja se inscribe, si no, no pasa nada.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>8 · Pitch de los 2 pilares</summary>
+        <div class="acc-body">
+          <p>Presenta cada pilar con estructura beneficio lógico → beneficio emocional → caso de éxito, atando siempre a lo que el cliente dijo en el descubrimiento. Cierra cada pilar con: <span class="say">"¿Tiene sentido para ti? ¿Le ves lógica?"</span></p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>9 · Fases del programa</summary>
+        <div class="acc-body"><p>Muestra las 3 fases (ver sección 05) solo después de que el cliente confirme que eso es lo que necesita.</p></div>
+      </details>
+
+      <details class="acc">
+        <summary>10 · Características de la entrega</summary>
+        <div class="acc-body"><p>Repaso de sesiones 1:1, app, protocolos, seguimiento y bonus (ver sección 06).</p></div>
+      </details>
+
+      <details class="acc">
+        <summary>11 · Inversión y temperatura</summary>
+        <div class="acc-body">
+          <p>Pide una puntuación 1–10 de encaje con el plan. Si es menos de 10, pregunta qué faltaría. Si es 10, deja que el propio cliente se venda la idea antes de dar el precio. Da la cifra completa y <strong style="color:var(--ink);">cállate</strong> — el que habla primero pierde.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>12–13 · Objeciones y cierre</summary>
+        <div class="acc-body">
+          <p>Ver sección de objeciones más abajo. En el cierre: confirma el plan de pago, envía el enlace correspondiente (ver sección de Inversión) y agenda el Escaneo Fénix esa misma semana.</p>
+        </div>
+      </details>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="objeciones">
+      <div class="section-tag">09 · Objeciones</div>
+      <h2>Manejo de objeciones</h2>
+
+      <details class="acc">
+        <summary>"Me lo tengo que pensar"</summary>
+        <div class="acc-body">
+          <p>Aísla cuál de las tres dudas reales está detrás: (1) si el método es lo que busca, (2) si le puede ayudar a él/ella concretamente, (3) si será capaz de sostener el proceso. Pregunta directamente cuál de las tres es. Si es 1 o 2 → trabaja certeza en el producto con un caso de éxito similar a su perfil. Si es 3 → trabaja certeza en sí mismo, usando sus propias palabras (miedo y deseo que mencionó antes).</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"Es caro / es mucho dinero"</summary>
+        <div class="acc-body">
+          <p>Nunca justifiques el precio. Pregunta: <span class="say">"¿Caro respecto a qué?"</span> Si compara con alternativas más baratas, pregunta por qué entonces no está ya trabajando con ellas — normalmente revela desconfianza en esas opciones. El precio casi nunca es el problema real: suele faltar certeza en el programa o en sí mismo/a.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"No tengo dinero"</summary>
+        <div class="acc-body">
+          <p>Aísla el dinero: <span class="say">"Si el dinero no fuera un problema, ¿harías el programa?"</span> Si dice que sí, negocia opciones de pago (mínimo 40% en el primer pago) y refuerza el valor de lo que recupera frente al coste diario del programa.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"¿Tienes garantía?"</summary>
+        <div class="acc-body">
+          <p>Se responde con honestidad directa: preguntar por garantía de devolución suele señalar falta de compromiso. La garantía real que se ofrece es el acompañamiento personal si el cliente cumple su parte del proceso.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"Necesito hablarlo con mi pareja"</summary>
+        <div class="acc-body">
+          <p>Propón una llamada corta de 15–20 min con ambos, o pregunta qué necesitaría para poder explicárselo bien a su pareja y envía un resumen por email. Fija día y hora concretos de seguimiento.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"Tengo miedo de lesionarme"</summary>
+        <div class="acc-body"><p>Explica que por eso el método existe: el primer mes no hay fuerza pesada ni HIIT, solo movilidad y control corporal partiendo del nivel real, con corrección técnica por vídeo.</p></div>
+      </details>
+
+      <details class="acc">
+        <summary>"No tengo tiempo para entrenar"</summary>
+        <div class="acc-body"><p>Son 3 sesiones semanales de 50 a 60 minutos, desde casa. Compáralo con el tiempo que ya invierte gestionando dolor y cansancio (fisio, cafés, bajones).</p></div>
+      </details>
+
+      <details class="acc">
+        <summary>"Ya he probado de todo y no ha funcionado"</summary>
+        <div class="acc-body"><p>Pregunta qué probó exactamente y si estaba diseñado específicamente para revertir años de trabajo sentado (oficina o remoto) en el orden correcto. La respuesta suele ser que no — ahí conecta con el diferencial del método.</p></div>
+      </details>
+
+      <div class="grid-2">
+        <div class="card"><div class="pill">Por WhatsApp (setter)</div><p>"¿Es gratis?" → la valoración sí, el acompañamiento es de pago. "No tengo dinero" → distinguir si es imposibilidad real o falta de percepción de valor; si es real, no presionar y ofrecer un recurso.</p></div>
+        <div class="card"><div class="pill">Precio antes de la llamada</div><p>No se introduce el precio de forma espontánea durante el setteo. Si el lead insiste, se responde con la política comercial acordada, sin inventar condiciones.</p></div>
+      </div>
+    </section>
+
+    <section id="limites">
+      <div class="section-tag">10 · Límites</div>
+      <h2>Qué no prometer nunca</h2>
+      <div class="dodont">
+        <div class="box do">
+          <h4>Se puede decir</h4>
+          <ul>
+            <li>El programa es progresivo y se adapta al punto de partida real</li>
+            <li>Se trabaja movilidad, fuerza funcional y nutrición evolutiva</li>
+            <li>El compromiso del equipo es acompañar codo a codo si el cliente cumple su parte</li>
+            <li>Casos de éxito de clientes con perfil similar</li>
+          </ul>
+        </div>
+        <div class="box dont">
+          <h4>Nunca prometer</h4>
+          <ul>
+            <li>Curación de hernias, tendinopatías, artrosis u otras patologías</li>
+            <li>Eliminación garantizada del dolor</li>
+            <li>Resultados exactos en una fecha concreta</li>
+            <li>Sustituir tratamiento médico o fisioterapia</li>
+            <li>Diagnosticar o interpretar pruebas médicas</li>
+            <li>Manipular con miedo, culpa o dolor; criticar a otros profesionales de salud</li>
+          </ul>
+        </div>
+      </div>
+      <p class="subnote">Ante síntomas graves, recientes o preocupantes, siempre recomendar valoración sanitaria antes de continuar el proceso comercial.</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="inversion">
+      <div class="section-tag">11 · Operativa de cierre</div>
+      <h2>Inversión y enlaces de pago</h2>
+      <p>1.500&nbsp;€ IVA incluido por los 6 meses de acompañamiento. Se ofrecen tres modalidades de pago. Los enlaces son de Stripe, integrados con el sistema Sequoia — al confirmar el plan con el cliente, envía el enlace correspondiente por WhatsApp o email.</p>
+
+      <div class="paybox">
+        <h3>Enlaces de pago</h3>
+        <div class="pay-grid">
+          <div class="pay-card">
+            <div class="plan">Pago único</div>
+            <div class="amount">1.500&nbsp;€</div>
+            <a class="link" href="https://link.fastpaydirect.com/payment-link/6a492173d6425bc946847e94" target="_blank" rel="noopener">link.fastpaydirect.com/payment-link/6a492173d6425bc946847e94</a>
+          </div>
+          <div class="pay-card">
+            <div class="plan">2 plazos</div>
+            <div class="amount">750&nbsp;€ + 750&nbsp;€</div>
+            <a class="link" href="https://link.fastpaydirect.com/payment-link/6a47ffeda655fa0b802a2990" target="_blank" rel="noopener">link.fastpaydirect.com/payment-link/6a47ffeda655fa0b802a2990</a>
+          </div>
+          <div class="pay-card">
+            <div class="plan">3 plazos</div>
+            <div class="amount">500&nbsp;€ x3</div>
+            <a class="link" href="https://link.fastpaydirect.com/payment-link/6a479b1bd6425bc946847c01" target="_blank" rel="noopener">link.fastpaydirect.com/payment-link/6a479b1bd6425bc946847c01</a>
+          </div>
+        </div>
+        <div class="onboarding-line">
+          <strong style="color:var(--ink);">Onboarding tras el pago:</strong>
+          <a href="https://fenixremoto.com/bienvenida-fenix" target="_blank" rel="noopener">https://fenixremoto.com/bienvenida-fenix</a>
+        </div>
+      </div>
+      <p class="subnote" style="margin-top:14px;">Recuerda: nunca introduzcas el precio de forma espontánea antes de haber presentado los dos pilares y las fases del programa (bloques 8–10 del script).</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="proceso-closer">
+      <div class="section-tag">12 · Proceso de Closer</div>
+      <h2>Procedimiento del Closer: de dónde llegan los leads y cómo cerrar cada uno</h2>
+      <p>El closer gestiona su CRM en Sequoia desde tres orígenes de lead distintos, cada uno con un enfoque de primer contacto diferente, y lleva a todos por el mismo procedimiento hasta el cierre y el envío del onboarding.</p>
+
+      <h3>Los 3 orígenes de lead</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill">Origen A</div>
+          <h4>Reenganche · WhatsApp abierto</h4>
+          <p>Conversaciones de WhatsApp que quedaron abiertas y sin resolver, con 15+ días sin respuesta. El closer intenta recuperarlas con la secuencia de mensajes de reenganche.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Origen B</div>
+          <h4>WhatsApp caliente → Sequoia</h4>
+          <p>Conversaciones que arrancan por WhatsApp y se redirigen automáticamente a Sequoia como lead nuevo. Al venir de una conversación recién iniciada, se tratan como <strong style="color:var(--ink);">lead caliente</strong>: contacto inmediato, sin dejar pasar horas.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Origen C</div>
+          <h4>Web · vídeo de entrada</h4>
+          <p>Leads que se registran en la web tras ver el <a href="https://youtu.be/QixaHl0MrkU" target="_blank" rel="noopener">vídeo del taller</a>. Llegan con menos intención explícita que el WhatsApp caliente: el primer mensaje debe conectar con lo que vieron en el vídeo, no asumir que ya quieren comprar.</p>
+        </div>
+      </div>
+      <div class="callout"><strong>Orden de prioridad diario:</strong> primero Origen B (caliente, se enfría rápido), después Origen C (web), y el Origen A (reenganche) se trabaja en bloques dedicados aparte, no intercalado entre los otros dos.</div>
+
+      <h3>Procedimiento paso a paso: de la entrada del lead al cierre</h3>
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Clasificar el origen en Sequoia</h4>
+          <p>Al empezar el bloque de trabajo, el closer separa su cola en los tres orígenes (A, B, C) para saber con qué tono y urgencia abrir cada conversación.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Primer contacto según el origen</h4>
+          <p><strong style="color:var(--ink);">Origen B:</strong> continuar la conversación ya iniciada, sin reabrir con un saludo genérico. <strong style="color:var(--ink);">Origen C:</strong> referenciar el vídeo o taller que vio en la web. <strong style="color:var(--ink);">Origen A:</strong> mensaje de recuperación (ver biblioteca más abajo), adaptado al punto exacto donde quedó esa conversación.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Cualificación por WhatsApp</h4>
+          <p>Se descubre problema, impacto, intentos previos y objetivo — mínimo 3 de 4 bloques — sin convertirlo en un interrogatorio. Una pregunta importante por mensaje.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body">
+          <h4>Feedback con sus propias palabras</h4>
+          <p>Antes de proponer nada, se sintetiza lo que el lead ha contado usando sus datos concretos, para que note escucha real.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">5</div>
+        <div class="phase-body">
+          <h4>Proponer la videollamada de valoración</h4>
+          <p>Transición natural: "por lo que me cuentas, creo que tendría sentido revisar tu caso con más calma". Nunca se fuerza si aún no hay contexto suficiente.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">6</div>
+        <div class="phase-body">
+          <h4>Confirmar cita y enviar el vídeo de preparación</h4>
+          <p>En cuanto el lead confirma un hueco, se agenda en Sequoia y se envía el vídeo de preparación de la llamada.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">7</div>
+        <div class="phase-body">
+          <h4>Preparar la llamada</h4>
+          <p>Antes de entrar, el closer relee todo el historial de esa conversación (venga del origen que venga) para no repetir el descubrimiento durante la llamada.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">8</div>
+        <div class="phase-body">
+          <h4>Ejecutar la llamada completa</h4>
+          <p>Química y encuadre → descubrimiento → dolor → por qué ahora → situación deseada → transición → pitch de los 2 pilares → fases del programa → inversión y objeciones (ver sección "Estructura de la llamada").</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">9</div>
+        <div class="phase-body">
+          <h4>Cierre: confirmar plan de pago</h4>
+          <p>Se acuerda pago único, 2 plazos o 3 plazos, y se envía el enlace de Stripe correspondiente (ver sección "Inversión y enlaces de pago").</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">10</div>
+        <div class="phase-body">
+          <h4>Enviar el enlace de onboarding</h4>
+          <p>En cuanto se confirma el pago, se envía <span class="mono" style="color:var(--gold-soft);">fenixremoto.com/bienvenida-fenix</span> para que el cliente arranque el proceso de bienvenida.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">11</div>
+        <div class="phase-body">
+          <h4>Agendar el Escaneo Fénix</h4>
+          <p>Se fija la primera sesión 1:1 esa misma semana o la siguiente como muy tarde.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">12</div>
+        <div class="phase-body">
+          <h4>Actualizar Sequoia con el estado final</h4>
+          <p>Cerrado, seguimiento agendado, o descartado — nunca se deja un lead sin estado actualizado al terminar el contacto.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">13</div>
+        <div class="phase-body">
+          <h4>Si no cierra</h4>
+          <p>Se envía un caso de éxito y material de apoyo, se fija día y hora concretos de seguimiento, y si la conversación se queda sin resolver, más adelante entra en el flujo de reenganche (Origen A).</p>
+        </div>
+      </div>
+
+      <h3>Mensajes de recuperación · Origen A (reenganche)</h3>
+      <p>Cada mensaje retoma el punto exacto donde se quedó esa conversación concreta — no es un mensaje genérico de seguimiento — y ninguno suena a presión ni a recriminación por el silencio.</p>
+
+      <details class="acc" open>
+        <summary>1 · Se quedó justo antes de proponer la llamada</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre], retomando lo que hablamos sobre [su molestia/objetivo]... ¿sigues con ganas de darle solución o cambiaron las cosas?"</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>2 · Se propuso la llamada pero no llegó a agendar</summary>
+        <div class="acc-body">
+          <p class="say">"[Nombre], habíamos quedado en ver tu caso con una videollamada de valoración y se quedó ahí. ¿Te sigue interesando que lo miremos con calma?"</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>3 · Se agendó pero no se presentó / canceló</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre], vi que no pudimos coincidir en la llamada. ¿Buscamos otro hueco o prefieres que lo dejemos por ahora?"</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>4 · Pidió pensarlo y no volvió a escribir</summary>
+        <div class="acc-body">
+          <p class="say">"[Nombre], te dejé espacio para pensarlo sobre [lo que dijo que necesitaba pensar]. ¿Cómo lo ves? Sin ningún compromiso, solo quiero saber si sigue teniendo sentido para ti."</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>5 · Se envió un recurso gratuito y no hubo respuesta</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre], ¿pudiste ver el recurso que te compartí sobre [tema]? Cuando quieras me cuentas qué te pareció."</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>6 · Mensaje de cierre de ciclo (último intento, sin respuesta previa)</summary>
+        <div class="acc-body">
+          <p class="say">"[Nombre], no quiero insistir de más — si te sigue interesando recuperar [su objetivo], aquí estoy. Si prefieres que lo dejemos por ahora, también me lo puedes decir sin problema."</p>
+        </div>
+      </details>
+
+      <div class="callout"><strong>Regla del reenganche:</strong> se activa solo sobre conversaciones abiertas/sin resolver con 15+ días sin respuesta. Si el lead responde en cualquier punto, sale de esta secuencia y entra en el procedimiento normal desde el paso 3. Si no responde tras el mensaje 6, se marca en Sequoia como pausado y no se le vuelve a escribir hasta que llegue por otra vía.</div>
+
+      <h3>Checklist antes de colgar cada llamada</h3>
+      <ul class="checklist">
+        <li><span class="box"></span> Identifiqué el origen del lead (A/B/C) y usé el primer contacto correspondiente</li>
+        <li><span class="box"></span> Leí el historial completo en Sequoia antes de la llamada</li>
+        <li><span class="box"></span> Recorrí química, encuadre, descubrimiento, dolor, por qué ahora y situación deseada sin saltarme bloques obligatorios</li>
+        <li><span class="box"></span> Presenté los 2 pilares atados a las palabras exactas del cliente</li>
+        <li><span class="box"></span> Di el precio completo y me callé</li>
+        <li><span class="box"></span> Resolví objeciones aislando el problema real antes de negociar</li>
+        <li><span class="box"></span> No prometí curación, diagnóstico ni resultados garantizados</li>
+        <li><span class="box"></span> Envié el enlace de pago correcto según el plan acordado</li>
+        <li><span class="box"></span> Si cerró: envié el enlace de onboarding y agendé el Escaneo Fénix</li>
+        <li><span class="box"></span> Si no cerró: envié caso de éxito + material y fijé día/hora concretos de seguimiento</li>
+        <li><span class="box"></span> Actualicé el estado del lead en Sequoia</li>
+      </ul>
+    </section>
+
+    <footer>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="5" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Closer Search — Informe interno de referencia para el equipo de Closers sobre Método Fénix Remoto.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
